@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 1rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+    border-bottom: 1px dashed #3498db;
+    padding: 4px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Additional styles for the canvas */
+canvas {
+    border: 1px solid black;
+    cursor: crosshair;
+    display: block;
+    margin: 1rem auto;  /* Centers the canvas horizontally */
+    max-width: 100%;  /* Ensure canvas does not overflow the container */
+}

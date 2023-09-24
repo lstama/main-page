@@ -17,19 +17,19 @@ const togglePenEraserButton = document.getElementById('togglePenEraser');
 const clearCanvasButton = document.getElementById('clearCanvas');
 const currentModeIndicator = document.getElementById('currentMode');
 
-canvas.addEventListener('mousedown', (event) => {
-    isDrawing = true;
-    const pos = getMousePos(canvas, event);
-    ctx.moveTo(pos.x, pos.y);
-    ctx.beginPath();
-});
-
-canvas.addEventListener('mouseup', () => {
-    isDrawing = false;
-    ctx.closePath();
-});
-
+// Mouse Events
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mousemove', draw);
+
+// Touch Events
+canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchend', stopDrawing);
+canvas.addEventListener('touchmove', (event) => {
+    // Prevent scrolling while drawing
+    event.preventDefault();
+    draw(event.touches[0]);
+});
 
 togglePenEraserButton.addEventListener('click', () => {
     isEraser = !isEraser;
@@ -45,6 +45,18 @@ togglePenEraserButton.addEventListener('click', () => {
 clearCanvasButton.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
+
+function startDrawing(event) {
+    isDrawing = true;
+    const pos = getMousePos(canvas, event);
+    ctx.moveTo(pos.x, pos.y);
+    ctx.beginPath();
+}
+
+function stopDrawing() {
+    isDrawing = false;
+    ctx.closePath();
+}
 
 function draw(event) {
     if (!isDrawing) return;

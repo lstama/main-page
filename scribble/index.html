@@ -9,6 +9,20 @@
 <body>
     <div class="container">
         <h1>Scribble</h1>
+
+        <label>Size: </label>
+        <input type="range" id="penSize" min="1" max="50" value="5">
+
+        <label>Opacity: </label>
+        <input type="range" id="penOpacity" min="0" max="1" step="0.1" value="1">
+
+        <label>Color: </label>
+        <input type="color" id="penColor" value="#000000">
+
+        <div id="currentMode">Current Mode: Pen</div>
+        <button id="togglePenEraser">Switch to Eraser</button>
+        <button id="clearCanvas">Clear All</button>
+
         <canvas id="drawingCanvas"></canvas>
     </div>
     <script src="script.js"></script>

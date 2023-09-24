@@ -14,8 +14,8 @@ body {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px;
+    width: 90vw; /* set it based on viewport width */
+    max-width: 90vw; /* removed the 500px limit */
     text-align: center;
 }
 

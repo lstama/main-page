@@ -11,10 +11,10 @@ body {
 
 .container {
     background-color: #fff;
-    padding: 2rem;
+    padding: 10 px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%;
+    width: 99%;
     text-align: center;
 }
 
@@ -48,8 +48,8 @@ a:hover {
     display: flex;
     flex-direction: column; /* Make content stack vertically */
     align-items: center;
-    padding: 20px;
-    margin: 20px;
+    padding: 5px;
+    margin: 5px;
     border: 1px solid #ddd;
     position: relative;
 }
@@ -62,18 +62,16 @@ a:hover {
 }
 
 .points {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
-    margin: 10px 0;
     text-align: center;
     width: 100%;
 }
 
 .input-display {
-    font-size: 24px;
+    font-size: 16px;
     width: 100%;
     height: 40px;
-    margin: 10px 0;
     text-align: center;
     border: 1px solid #ddd;
     line-height: 40px;
@@ -81,7 +79,7 @@ a:hover {
 }
 
 .operator {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
     padding: 10px 10px;
 }

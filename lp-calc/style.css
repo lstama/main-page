@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 1rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+    border-bottom: 1px dashed #3498db;
+    padding: 4px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.player {
+    display: flex;
+    flex-direction: column; /* Make content stack vertically */
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.points-input {
+    display: flex;
+    flex-direction: row; /* Make content stack vertically */
+    align-items: center;
+    position: relative;
+}
+
+.points {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.input-display {
+    font-size: 24px;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    text-align: center;
+    border: 1px solid #ddd;
+    line-height: 40px;
+    background-color: #e6e6e6;
+}
+
+.operator {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 10px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2a7bac;
+}
+
+#player1 {
+    background-color: #efefef;
+    transform: rotate(180deg); /* Flipping the UI */
+}
+
+#player2 {
+    background-color: #dfe7fd;
+}
+
+.numpad button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.toggle {
+    width: auto;
+    padding: 10px 20px;
+}
+
+/* Making the numpad horizontally stacked */
+.numpad {
+    display: flex;
+    flex-wrap: wrap; /* Adjust based on screen size */
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.operator-select {
+    display: flex;
+    flex-direction: row; /* Make content stack vertically */
+    align-items: center;
+    position: relative;
+}
+
+.reset-button {
+    margin-top: 20px;
+    padding: 10px 40px;
+}

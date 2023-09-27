@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Point Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div id="player1" class="player">
+        <div class="points-input">
+            <div class="points" data-points="8000">8000</div>
+            <div class="operator">-</div>
+            <div class="input-display" id="player1Display">0</div>
+        </div>
+
+        <div class="numpad">
+            <!-- Numeric pad buttons for Player 1 will be injected by script.js -->
+        </div>
+        <div class="operator-select">
+            <button class="toggle" onclick="toggleMode('player1')">+/-</button>
+        </div>
+        <!-- Other buttons for Player 1 will be injected by script.js -->
+    </div>
+    <center><button class="reset-button" onclick="reset()">Reset</button></center>
+    <div id="player2" class="player">
+        <div class="points-input">
+            <div class="points" data-points="8000">8000</div>
+            <div class="operator">-</div>
+            <div class="input-display" id="player2Display">0</div>
+        </div>
+        <div class="numpad">
+            <!-- Numeric pad buttons for Player 2 will be injected by script.js -->
+        </div>
+        <div class="operator-select">
+            <button class="toggle" onclick="toggleMode('player2')">+/-</button>
+        </div>
+        <!-- Other buttons for Player 2 will be injected by script.js -->
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

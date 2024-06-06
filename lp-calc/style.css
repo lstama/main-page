@@ -73,15 +73,15 @@ a:hover {
     width: 100%;
     height: 40px;
     text-align: center;
-    border: 1px solid #ddd;
     line-height: 40px;
-    background-color: #e6e6e6;
+    display: none;
 }
 
 .operator {
     font-size: 16px;
     font-weight: bold;
     padding: 10px 10px;
+    display: none;
 }
 
 button {
@@ -93,6 +93,7 @@ button {
     color: white;
     transition: background-color 0.3s;
     cursor: pointer;
+    text-align: center;
 }
 
 button:hover {
@@ -111,7 +112,9 @@ button:hover {
 .numpad button {
     width: 50px;
     height: 50px;
+    padding: 10px 10px;
     font-size: 20px;
+    text-align: center;
 }
 
 .toggle {

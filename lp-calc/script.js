@@ -1,4 +1,23 @@
+function toggleOperatorVisibility(player, display){
+    if (display != "none" && display != "block") {
+        display = "none"
+    }
+    let playerDiv = document.getElementById(player);
+    let operatorDiv = playerDiv.querySelector('.operator');
+    operatorDiv.style.display = display;
+}
+
+function toggleInputDisplayVisibility(player, display){
+    let inputDisplayDiv = document.getElementById(player + "Display");
+    if (display != "none" && display != "block") {
+        display = "none"
+    }
+    inputDisplayDiv.style.display = display;
+}
+
 function appendToInput(player, num) {
+    toggleOperatorVisibility(player, "block")
+    toggleInputDisplayVisibility(player, "block")
     let display = document.getElementById(player + "Display");
     if (display.innerText === "0" && num !== "00") {
         display.innerText = num;
@@ -10,6 +29,8 @@ function appendToInput(player, num) {
 function clearInput(player) {
     let display = document.getElementById(player + "Display");
     display.innerText = "0";
+    toggleOperatorVisibility(player, "none")
+    toggleInputDisplayVisibility(player, "none")
 }
 
 function applyChange(player) {
@@ -19,6 +40,8 @@ function applyChange(player) {
         value = -value;
     }
     changePoints(player, value);
+    toggleOperatorVisibility(player, "none")
+    toggleInputDisplayVisibility(player, "none")
     display.innerText = "0";
 }
 
@@ -31,12 +54,25 @@ function changePoints(player, amount) {
     pointDiv.textContent = currentPoints;
 }
 
+function resetOperator(player) {
+    let playerDiv = document.getElementById(player);
+    let operatorDiv = playerDiv.querySelector('.operator');
+    operatorDiv.textContent = "-"; 
+}
+
 function reset() {
     let players = document.querySelectorAll('.player .points');
     players.forEach(player => {
         player.setAttribute('data-points', 8000);
         player.textContent = 8000;
+
     });
+    clearInput("player1");
+    clearInput("player2");
+    resetOperator("player1");
+    resetOperator("player2");
+    toggleOperatorVisibility(player, "none");
+    toggleInputDisplayVisibility(player, "none");
 }
 
 let isSubtraction = {
@@ -53,6 +89,8 @@ function toggleMode(player) {
     } else {
         operatorDiv.textContent = "+";
     }
+    toggleOperatorVisibility(player, "block")
+    toggleInputDisplayVisibility(player, "block")
 }
 
 function multiply(player, factor) {

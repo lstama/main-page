@@ -12,10 +12,12 @@ let isEraser = false;
 
 const penSizeSlider = document.getElementById('penSize');
 const penOpacitySlider = document.getElementById('penOpacity');
-const penColorPicker = document.getElementById('penColor');
-const togglePenEraserButton = document.getElementById('togglePenEraser');
+// const togglePenEraserButton = document.getElementById('togglePenEraser');
+const penButton = document.getElementById('penButton');
+const eraserButton = document.getElementById('eraserButton');
 const clearCanvasButton = document.getElementById('clearCanvas');
 const currentModeIndicator = document.getElementById('currentMode');
+const colorLabel = document.getElementById('colorLabel');
 
 // Mouse Events
 canvas.addEventListener('mousedown', startDrawing);
@@ -31,17 +33,36 @@ canvas.addEventListener('touchmove', (event) => {
     draw(event.touches[0]);
 });
 
-togglePenEraserButton.addEventListener('click', () => {
-    isEraser = !isEraser;
-    if (isEraser) {
-        togglePenEraserButton.textContent = "Switch to Pen";
-        currentModeIndicator.textContent = "Current Mode: Eraser";
-    } else {
-        togglePenEraserButton.textContent = "Switch to Eraser";
-        currentModeIndicator.textContent = "Current Mode: Pen";
-    }
+// togglePenEraserButton.addEventListener('click', () => {
+//     isEraser = !isEraser;
+//     if (isEraser) {
+//         togglePenEraserButton.textContent = "Switch to Pen";
+//         currentModeIndicator.textContent = "Current Mode: Eraser";
+//     } else {
+//         togglePenEraserButton.textContent = "Switch to Eraser";
+//         currentModeIndicator.textContent = "Current Mode: Pen";
+//     }
+// });
+const penColorPicker = document.getElementById('penColor');
+penColorPicker.addEventListener('input', () => {
+    colorLabel.style.color = penColorPicker.value;
 });
 
+penButton.addEventListener('click', () => {
+    isEraser = false;
+    penButton.style.backgroundColor =  "#2a7bac";
+    eraserButton.style.backgroundColor =  "#3498db";
+    // Pen U+270E
+});
+
+eraserButton.addEventListener('click', () => {
+    isEraser = true;
+    penButton.style.backgroundColor =  "#3498db";
+    eraserButton.style.backgroundColor =  "#2a7bac";
+    // Pen U+270E
+});
+
+//Eraser U+2327
 clearCanvasButton.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });

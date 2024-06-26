@@ -65,14 +65,13 @@ function reset() {
     players.forEach(player => {
         player.setAttribute('data-points', 8000);
         player.textContent = 8000;
-
+        toggleOperatorVisibility(player, "none");
+        toggleInputDisplayVisibility(player, "none");
     });
     clearInput("player1");
     clearInput("player2");
     resetOperator("player1");
-    resetOperator("player2");
-    toggleOperatorVisibility(player, "none");
-    toggleInputDisplayVisibility(player, "none");
+    resetOperator("player2"); 
 }
 
 let isSubtraction = {

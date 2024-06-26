@@ -1,0 +1,29 @@
+name: Minify main page
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+  minify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - run: npm i -g minify@11.2.1
+
+      - run: |
+        for file in **/*.{js,html,css} 
+        do
+          minify --auto "$file" > $file
+        done
+
+      - run: |
+          git config user.name Lantang Satriatama
+          git config user.email lstama@user.noreply.github.com
+          git commit -am 'Minify ${{ github.sha }}'
+          git push --force -u origin master:gh-pages

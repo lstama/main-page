@@ -21,7 +21,7 @@ jobs:
       - run: |
           for file in **/*.{js,html,css} 
           do
-            minify --auto $file > $file
+            minify $file > $file
           done
 
       - run: |

@@ -4,6 +4,8 @@ const ctx = canvas.getContext('2d');
 function resizeCanvas() {
     canvas.width = window.innerWidth * 0.9;
     canvas.height = window.innerHeight * 0.7;
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 resizeCanvas();
 
@@ -16,33 +18,13 @@ const penOpacitySlider = document.getElementById('penOpacity');
 const penButton = document.getElementById('penButton');
 const eraserButton = document.getElementById('eraserButton');
 const clearCanvasButton = document.getElementById('clearCanvas');
+const clearCanvasModal = document.getElementById('clearCanvasModal');
+const clearCanvasNo = document.getElementById('clearCanvasNo');
+const clearCanvasYes = document.getElementById('clearCanvasYes');
 const currentModeIndicator = document.getElementById('currentMode');
 const colorLabel = document.getElementById('colorLabel');
+const saveCanvasButton = document.getElementById('saveCanvas');
 
-// Mouse Events
-canvas.addEventListener('mousedown', startDrawing);
-canvas.addEventListener('mouseup', stopDrawing);
-canvas.addEventListener('mousemove', draw);
-
-// Touch Events
-canvas.addEventListener('touchstart', startDrawing);
-canvas.addEventListener('touchend', stopDrawing);
-canvas.addEventListener('touchmove', (event) => {
-    // Prevent scrolling while drawing
-    event.preventDefault();
-    draw(event.touches[0]);
-});
-
-// togglePenEraserButton.addEventListener('click', () => {
-//     isEraser = !isEraser;
-//     if (isEraser) {
-//         togglePenEraserButton.textContent = "Switch to Pen";
-//         currentModeIndicator.textContent = "Current Mode: Eraser";
-//     } else {
-//         togglePenEraserButton.textContent = "Switch to Eraser";
-//         currentModeIndicator.textContent = "Current Mode: Pen";
-//     }
-// });
 const penColorPicker = document.getElementById('penColor');
 penColorPicker.addEventListener('input', () => {
     colorLabel.style.color = penColorPicker.value;
@@ -59,12 +41,55 @@ eraserButton.addEventListener('click', () => {
     isEraser = true;
     penButton.style.backgroundColor =  "#3498db";
     eraserButton.style.backgroundColor =  "#2a7bac";
-    // Pen U+270E
 });
 
-//Eraser U+2327
+// CLEAR CANVAS BUTTON AND MODAL
 clearCanvasButton.addEventListener('click', () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    clearCanvasModal.style.display = "flex";
+});
+
+clearCanvasNo.addEventListener('click', () => {
+    clearCanvasModal.style.display = "none";
+});
+
+clearCanvasYes.addEventListener('click', () => {
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    clearCanvasModal.style.display = "none";
+});
+
+window.onclick = function(event) {
+    if (event.target == clearCanvasModal) {
+        clearCanvasModal.style.display = "none";
+    }
+}
+
+// SAVE CANVAS
+saveCanvasButton.addEventListener('click', () => {
+    let downloadLink = document.createElement('a');
+    downloadLink.setAttribute('download', 'scribble.png');
+    let dataURL = canvas.toDataURL('image/png');
+    let url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream');
+    downloadLink.setAttribute('href', url);
+    downloadLink.click();
+});
+
+
+// DRAWING FUNCTIONS
+
+// Mouse Events
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseleave', stopDrawing);
+
+// Touch Events
+canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchend', stopDrawing);
+canvas.addEventListener('touchmove', (event) => {
+    // Prevent scrolling while drawing
+    event.preventDefault();
+    draw(event.touches[0]);
 });
 
 function startDrawing(event) {

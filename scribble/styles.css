@@ -17,6 +17,17 @@ body {
     width: 90vw;
     max-width: 90vw;
     text-align: center;
+    position: relative;
+}
+
+.toolContainer {
+    pointer-events: none;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
 h1 {
@@ -82,6 +93,90 @@ a:hover {
     color: white;
     cursor: pointer;
     text-align: center;
+}
+
+.saveButton {
+    background-color: #3498db;
+    transition: background-color 0.2s;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    margin: 0;
+    padding: 10px 20px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-color: #fff;
+    border-style: solid;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(80, 67, 67, 0.5);
+    padding-top: 50px;
+    justify-content: center;
+}
+
+.containerModal {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+}
+
+.clearCanvasModalOptions{
+    display: flex;
+    justify-content: center;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-bottom: 1vw;
+}
+
+.cancelButton {
+    background-color: #3498db;
+    transition: background-color 0.2s;
+    font-size: 17px;
+    margin: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-color: #fff;
+    border-style: solid;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    width: 100px;
+    height: 30px;
+    padding-top: 10px;
+}
+
+.warningButton {
+    background-color: #db3434;
+    transition: background-color 0.2s;
+    font-size: 17px;
+    margin: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-color: #fff;
+    border-style: solid;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    width: 100px;
+    height: 30px;
+    padding-top: 10px;
 }
 
 .penButton{

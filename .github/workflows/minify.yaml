@@ -17,11 +17,11 @@ jobs:
           node-version: '20'
 
       - run: npm i -g minify@11.2.1
-
+      - run: ls
       - run: |
           for file in **/*.{js,html,css} 
           do
-            minify --auto "$file" > $file
+            minify --auto $file > $file
           done
 
       - run: |

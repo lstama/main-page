@@ -21,7 +21,7 @@ jobs:
       - run: |
           for file in **/*.{js,html,css} 
           do
-            minify $file > $file
+            minify $file > $file.tmp && mv -f $file.tmp $file
           done
 
       - run: |

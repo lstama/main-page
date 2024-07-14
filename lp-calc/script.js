@@ -1,3 +1,7 @@
+const toggleButton1 = document.getElementById('toggleButton1');
+const toggleButton2 = document.getElementById('toggleButton2');
+const resetButton = document.getElementById('resetButton');
+
 function toggleOperatorVisibility(player, display){
     if (display != "none" && display != "block") {
         display = "none"
@@ -61,17 +65,18 @@ function resetOperator(player) {
 }
 
 function reset() {
-    let players = document.querySelectorAll('.player .points');
-    players.forEach(player => {
+    let playerDivs = document.querySelectorAll('.player .points');
+    playerDivs.forEach(player => {
         player.setAttribute('data-points', 8000);
         player.textContent = 8000;
+    });
+    let playerId = ["player1", "player2"];
+    playerId.forEach(player => {
         toggleOperatorVisibility(player, "none");
         toggleInputDisplayVisibility(player, "none");
+        clearInput(player);
+        resetOperator(player);
     });
-    clearInput("player1");
-    clearInput("player2");
-    resetOperator("player1");
-    resetOperator("player2"); 
 }
 
 let isSubtraction = {
@@ -158,3 +163,15 @@ window.onload = () => {
         document.getElementById(player).appendChild(btnApply);
     });
 };
+
+toggleButton1.addEventListener('click', () => {
+    toggleMode("player1");
+});
+
+toggleButton2.addEventListener('click', () => {
+    toggleMode("player2");
+});
+
+resetButton.addEventListener('click', () => {
+    reset();
+});

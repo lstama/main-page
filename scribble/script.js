@@ -5,7 +5,10 @@ function resizeCanvas() {
     canvas.width = window.innerWidth * 0.9;
     canvas.height = window.innerHeight * 0.7;
     ctx.fillStyle = "white";
+    let tmpAlpha = ctx.globalAlpha;
+    ctx.globalAlpha = 1.0;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalAlpha = tmpAlpha;
 }
 resizeCanvas();
 

@@ -57,7 +57,10 @@ clearCanvasNo.addEventListener('click', () => {
 
 clearCanvasYes.addEventListener('click', () => {
     ctx.fillStyle = "white";
+    let tmpAlpha = ctx.globalAlpha;
+    ctx.globalAlpha = 1.0;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalAlpha = tmpAlpha;
     clearCanvasModal.style.display = "none";
 });
 

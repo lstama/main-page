@@ -1,7 +1,6 @@
 let score = 0;
 let maxScore = 0;
 let timerInterval;
-let randomColor;
 let answer = 0;
 let left = 0;
 let right = 0;
@@ -9,6 +8,14 @@ let operator = "x";
 let choice = new Array(0, 1, 2, 3);
 
 document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('startButton').addEventListener('click', switchToDisplayB);
+    document.getElementById('stopButton').addEventListener('click', goBackToA);
+    for (let index = 0; index < 4; index++) {
+        document.getElementById('choice' + String(index)).addEventListener('mousedown', (event) => handleDown(index));
+        document.getElementById('choice' + String(index)).addEventListener('touchstart', (event) => handleDown(index));
+        document.getElementById('choice' + String(index)).addEventListener('mouseup', handleUp);
+        document.getElementById('choice' + String(index)).addEventListener('touchend', handleUp);
+    }
     adjustButtonFontSize();
 });
 
@@ -228,7 +235,7 @@ function adjustButtonFontSize() {
         const height = button.offsetHeight;
         // Calculate a font size based on the smaller dimension of the button
         const fontSize = Math.min(width, height) * 0.3; // You can adjust the multiplier as needed
-        biggest = Math.max(fontSize);
+        biggest = Math.max(biggest, fontSize);
         button.style.fontSize = `${fontSize}px`;
     });
 

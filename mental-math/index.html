@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body onload="adjustButtonFontSize()">
+<body>
     <!-- Display A -->
     <div id="displayA" class="container active">
         <h2>Highscore:</h2>
         <h1><span id="maxScore">0</span></h1>
         <span hidden="hidden" id="score">0</span>
         <div class="choice-container">
-            <button onclick="switchToDisplayB()">Start</button>
+            <button id="startButton">Start</button>
         </div>
     </div>
 
@@ -29,28 +29,16 @@
             <h1><span id="left">3</span><span id="operator">x</span><span id="right">5</span></h1>
         </div>
         <div class="choice-container">
-            <button id="choice0" onmousedown="handleDown(0)" ontouchstart="handleDown(0)"
-                onmouseup="handleUp()" ontouchend="handleUp()">
-                0
-            </button>
-            <button id="choice1" onmousedown="handleDown(1)" ontouchstart="handleDown(1)"
-                onmouseup="handleUp()" ontouchend="handleUp()">
-                1
-            </button>
+            <button id="choice0">0</button>
+            <button id="choice1">1</button>
         </div>
         <div class="choice-container">
-            <button id="choice2" onmousedown="handleDown(2)" ontouchstart="handleDown(2)"
-                onmouseup="handleUp()" ontouchend="handleUp()">
-                2
-            </button>
-            <button id="choice3" onmousedown="handleDown(3)" ontouchstart="handleDown(3)"
-                onmouseup="handleUp()" ontouchend="handleUp()">
-                3
-            </button>
+            <button id="choice2">2</button>
+            <button id="choice3">3</button>
         </div>
 
         <div class="choice-container">
-            <button onclick="goBackToA()">Stop</button>
+            <button id="stopButton">Stop</button>
         </div>
     </div>
 

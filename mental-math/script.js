@@ -258,17 +258,3 @@ function adjustButtonFontSize() {
     document.getElementById('operator').style.fontSize = `${biggest*3}px`;
     document.getElementById('right').style.fontSize = `${biggest*3}px`;
 }
-
-// Disable all buttons
-function disableAll() {
-    Array.prototype.forEach.call(document.querySelectorAll('button'), function (button) {
-        button.disabled = true;
-    });
-}
-
-// Enable all buttons
-function enableAll() {
-    Array.prototype.forEach.call(document.querySelectorAll('button'), function (button) {
-        button.disabled = false;
-    });
-}

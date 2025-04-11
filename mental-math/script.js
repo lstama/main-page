@@ -138,8 +138,7 @@ function generateMultiplication() {
 }
 
 function generateDivision() {
-    left = getRandomNumberBetween(1, 9); operator = ':'; right = getRandomNumberBetween(1, 9); answer = left * right;
-    let temp = left; left = answer; answer = temp;
+    right = getRandomNumberBetween(1, 9); operator = ':'; answer = getRandomNumberBetween(1, 9); left = answer * right;
     let rightAnswer = getRandomNumberBetween(0, 3);
     let wrongAnswers = new Array(answer, answer, answer);
 
@@ -197,8 +196,7 @@ function generateAddition() {
 }
 
 function generateSubstraction() {
-    answer = getRandomNumberBetween(19, 95); left = getRandomNumberBetween(3, answer - 1); operator = '-'; right = answer - left;
-    let temp = left; left = answer; answer = temp;
+    left = getRandomNumberBetween(19, 95); operator = '-'; right = getRandomNumberBetween(3, left - 1); answer = left - right;
     let rightAnswer = getRandomNumberBetween(0, 3);
     let wrongAnswers = new Array(answer, answer, answer);
     let bigger = Math.max(left,right);
@@ -224,7 +222,7 @@ function generateSubstraction() {
 }
 
 function getRandomNumberBetween(x, y) {
-    return Math.trunc(Math.random() * (y - x + 1)) + x; // minify break if trunc is floor
+    return Math.trunc(Math.random() * (y - x + 1)) + x;
 }
 
 function adjustButtonFontSize() {

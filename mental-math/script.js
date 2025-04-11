@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function switchToDisplayB() {
+    up = false;
+    down = false;
     score = 0;
 
     generateCongak();
@@ -46,6 +48,8 @@ function switchToDisplayB() {
 }
 
 function goBackToA() {
+    up = false;
+    down = false;
     // Clear the interval to stop the timer
     clearInterval(timerInterval);
 

@@ -6,6 +6,8 @@ let left = 0;
 let right = 0;
 let operator = "x";
 let choice = new Array(0, 1, 2, 3);
+let down = false;
+let up = false;
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('startButton').addEventListener('click', switchToDisplayB);
@@ -58,6 +60,10 @@ function goBackToA() {
 }
 
 function handleDown(selected) {
+    if (down) {
+        return;
+    }
+    down = true;
     if (answer == choice[selected]) {
         score++;
         document.getElementById('currentScore').textContent = score;
@@ -69,15 +75,21 @@ function handleDown(selected) {
             document.getElementById('choice' + String(index)).style.backgroundColor = 'red';
         }
     }
+    up = false;
 }
 
 function handleUp() {
+    if (!down) {
+        return;
+    }
+    if (up) {
+        return;
+    }
     for (let index = 0; index < choice.length; index++) {
         document.getElementById('choice' + String(index)).style.backgroundColor = '#3498db';
     }
-    disableAll();
     generateCongak();
-    enableAll();
+    down = false;
 }
 
 function generateCongak() {

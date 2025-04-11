@@ -21,8 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function switchToDisplayB() {
     score = 0;
+
+    generateCongak();
     document.getElementById('currentScore').textContent = score;
-    handleUp();
     document.getElementById('displayA').classList.remove('active');
     document.getElementById('displayB').classList.add('active');
 
@@ -71,10 +72,10 @@ function handleDown(selected) {
 }
 
 function handleUp() {
-    disableAll();
     for (let index = 0; index < choice.length; index++) {
         document.getElementById('choice' + String(index)).style.backgroundColor = '#3498db';
     }
+    disableAll();
     generateCongak();
     enableAll();
 }
@@ -223,7 +224,7 @@ function generateSubstraction() {
 }
 
 function getRandomNumberBetween(x, y) {
-    return Math.floor(Math.random() * (y - x + 1)) + x;
+    return Math.trunc(Math.random() * (y - x + 1)) + x; // minify break if trunc is floor
 }
 
 function adjustButtonFontSize() {

@@ -1,0 +1,76 @@
+h1 {
+    color: #3498db;
+}
+
+h2 {
+    color: #666;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between
+    }
+
+/* Specific styles for elements in Display B */
+#left, #operator, #right, #timer, #currentScore {
+    font-size: 1.5rem;
+    color: #3498db;
+}
+
+#choice0, #choice1, #choice2, #choice3 {
+    background-color: #3498db;
+    margin: 0.5rem;
+    transition: background-color 0.3s;
+    height: 80%;
+}
+
+/* Active state for buttons */
+button.active {
+    background-color: green;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    display: none; /* Hide by default */
+}
+
+.active {
+    display: block; /* Show only active container */
+}
+
+button {
+    margin: 1.5%; /* Adjust margins for spacing */
+    width: 30%; /* Set width to 30% of the container */
+    height: 30%; /* Set height to 15% of the container */
+    border: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Ensure buttons are centered in their container */
+.choice-container {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+}

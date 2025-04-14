@@ -9,7 +9,12 @@ h2 {
 .wrapper{
     display: flex;
     justify-content: space-between
-    }
+}
+
+.wrapper-history{
+    justify-content: center;
+    display: none; /* Hide by default */
+}
 
 /* Specific styles for elements in Display B */
 #left, #operator, #right, #timer, #currentScore {
@@ -17,15 +22,21 @@ h2 {
     color: #3498db;
 }
 
+#playerAnswer #questionAnswer #question {
+    font-size: 1.5rem;
+    color: #3498db;
+}
+
 #choice0, #choice1, #choice2, #choice3 {
     background-color: #3498db;
     margin: 0.5rem;
+    transition: background-color 0.3s;
     height: 80%;
-    transition-property: none !important;
-    /*CSS transforms*/
-    transform: none !important;
-    /*CSS animations*/
-    animation: none !important;
+}
+
+/* Active state for buttons */
+button.active {
+    background-color: green;
 }
 
 body {
@@ -46,8 +57,16 @@ body {
     display: none; /* Hide by default */
 }
 
+.pad-left {
+    margin-left: 10px;
+}
+
 .active {
     display: block; /* Show only active container */
+}
+
+.active-flex {
+    display: flex; /* Show only active container */
 }
 
 button {
@@ -57,6 +76,12 @@ button {
     border: none;
     background-color: #3498db;
     color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
 }
 
 /* Ensure buttons are centered in their container */

@@ -13,17 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('startButton').addEventListener('click', switchToDisplayB);
     document.getElementById('stopButton').addEventListener('click', goBackToA);
     for (let index = 0; index < 4; index++) {
-        document.getElementById('choice' + String(index)).addEventListener('mousedown', (event) => handleDown(index));
-        document.getElementById('choice' + String(index)).addEventListener('touchstart', (event) => handleDown(index));
-        document.getElementById('choice' + String(index)).addEventListener('mouseup', handleUp);
-        document.getElementById('choice' + String(index)).addEventListener('touchend', handleUp);
+        // document.getElementById('choice' + String(index)).addEventListener('mousedown', (event) => handleDown(index));
+        // document.getElementById('choice' + String(index)).addEventListener('touchstart', (event) => handleDown(index));
+        // document.getElementById('choice' + String(index)).addEventListener('mouseup', handleUp);
+        // document.getElementById('choice' + String(index)).addEventListener('touchend', handleUp);
+        document.getElementById('choice' + String(index)).addEventListener('click', (event) => onClickSelection(index));
     }
     adjustButtonFontSize();
 });
 
 function switchToDisplayB() {
-    up = false;
-    down = false;
     score = 0;
 
     generateCongak();
@@ -48,12 +47,11 @@ function switchToDisplayB() {
 }
 
 function goBackToA() {
-    up = false;
-    down = false;
     // Clear the interval to stop the timer
     clearInterval(timerInterval);
 
     document.getElementById('displayB').classList.remove('active');
+    document.getElementById('history').classList.remove('active-flex');
     document.getElementById('displayA').classList.add('active');
 
     // Check the maxScore
@@ -63,37 +61,32 @@ function goBackToA() {
     adjustButtonFontSize();
 }
 
-function handleDown(selected) {
-    if (down) {
-        return;
+function addToHistory(playerAnswer) {
+    document.getElementById('question').textContent = left + ' ' + operator + ' ' + right + ' = ';
+    if (playerAnswer == answer) {
+        document.getElementById('playerAnswer').style.textDecorationLine = 'none';
+        document.getElementById('playerAnswer').style.color = 'green';
+        document.getElementById('questionAnswer').style.display = 'none';
+    } else {
+        document.getElementById('playerAnswer').style.textDecorationLine = 'line-through';
+        document.getElementById('playerAnswer').style.color = 'red';
+        document.getElementById('questionAnswer').textContent = String(answer);
+        document.getElementById('questionAnswer').style.display = 'inline-block';
     }
-    down = true;
+    document.getElementById('playerAnswer').textContent = String(playerAnswer);
+    document.getElementById('history').classList.add('active-flex');
+}
+
+function onClickSelection(selected) {
+    disableAll();
     if (answer == choice[selected]) {
         score++;
         document.getElementById('currentScore').textContent = score;
     }
-    for (let index = 0; index < choice.length; index++) {
-        if (answer == choice[index]) {
-            document.getElementById('choice' + String(index)).style.backgroundColor = 'green';
-        } else {
-            document.getElementById('choice' + String(index)).style.backgroundColor = 'red';
-        }
-    }
-    up = false;
-}
 
-function handleUp() {
-    if (!down) {
-        return;
-    }
-    if (up) {
-        return;
-    }
-    for (let index = 0; index < choice.length; index++) {
-        document.getElementById('choice' + String(index)).style.backgroundColor = '#3498db';
-    }
+    addToHistory(choice[selected]);
     generateCongak();
-    down = false;
+    enableAll();
 }
 
 function generateCongak() {
@@ -257,4 +250,18 @@ function adjustButtonFontSize() {
     document.getElementById('left').style.fontSize = `${biggest*3}px`;
     document.getElementById('operator').style.fontSize = `${biggest*3}px`;
     document.getElementById('right').style.fontSize = `${biggest*3}px`;
+}
+
+// Disable all buttons
+function disableAll() {
+    Array.prototype.forEach.call(document.querySelectorAll('button'), function (button) {
+        button.disabled = true;
+    });
+}
+
+// Enable all buttons
+function enableAll() {
+    Array.prototype.forEach.call(document.querySelectorAll('button'), function (button) {
+        button.disabled = false;
+    });
 }

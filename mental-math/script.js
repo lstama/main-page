@@ -13,10 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('startButton').addEventListener('click', switchToDisplayB);
     document.getElementById('stopButton').addEventListener('click', goBackToA);
     for (let index = 0; index < 4; index++) {
-        // document.getElementById('choice' + String(index)).addEventListener('mousedown', (event) => handleDown(index));
-        // document.getElementById('choice' + String(index)).addEventListener('touchstart', (event) => handleDown(index));
-        // document.getElementById('choice' + String(index)).addEventListener('mouseup', handleUp);
-        // document.getElementById('choice' + String(index)).addEventListener('touchend', handleUp);
         document.getElementById('choice' + String(index)).addEventListener('click', (event) => onClickSelection(index));
     }
     adjustButtonFontSize();
@@ -29,6 +25,8 @@ function switchToDisplayB() {
     document.getElementById('currentScore').textContent = score;
     document.getElementById('displayA').classList.remove('active');
     document.getElementById('displayB').classList.add('active');
+    document.getElementById('history').classList.add('active-flex');
+    document.getElementById('history').classList.remove('visible');
 
     // Reset timer and start countdown
     let timeLeft = 60;
@@ -52,6 +50,7 @@ function goBackToA() {
 
     document.getElementById('displayB').classList.remove('active');
     document.getElementById('history').classList.remove('active-flex');
+    document.getElementById('history').classList.remove('visible');
     document.getElementById('displayA').classList.add('active');
 
     // Check the maxScore
@@ -74,7 +73,7 @@ function addToHistory(playerAnswer) {
         document.getElementById('questionAnswer').style.display = 'inline-block';
     }
     document.getElementById('playerAnswer').textContent = String(playerAnswer);
-    document.getElementById('history').classList.add('active-flex');
+    document.getElementById('history').classList.add('visible');
 }
 
 function onClickSelection(selected) {

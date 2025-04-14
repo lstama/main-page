@@ -14,6 +14,7 @@ h2 {
 .wrapper-history{
     justify-content: center;
     display: none; /* Hide by default */
+    visibility: hidden;
 }
 
 /* Specific styles for elements in Display B */
@@ -67,6 +68,10 @@ body {
 
 .active-flex {
     display: flex; /* Show only active container */
+}
+
+.visible {
+    visibility: visible;
 }
 
 button {

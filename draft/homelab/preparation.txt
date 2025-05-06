@@ -1,0 +1,16 @@
+prepare for homelab
+objective:
+portable
+  the machine
+  internet connection
+
+multi instance cluster
+kubernetes
+separate network from main wifi
+
+list spec
+photo
+
+physical network diagram
+
+installation, rpi os, static network, and k3

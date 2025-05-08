@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '20'
 
-      - run: npm i -g minify@14.0.0
+      - run: npm i -g minify@11.2.1
       - run: ls
       - run: |
           for file in **/*.{js,html,css} 

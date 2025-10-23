@@ -9,33 +9,69 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Hello, World!</h1>
+
+    <div class="container" id="card">
+        <div class="front">
+            <h1>Hello World</h1>
             <div role="button" class="collapsible row">
                 <div role="button" class="collapsible-right">?</div>
-                <div role="button" class="collapsible-left" onclick="location.href='/scribble';event.stopPropagation();">Scribble</div>
+                <div role="button" class="collapsible-left"
+                    onclick="location.href='/scribble';event.stopPropagation();">Scribble</div>
             </div>
             <div class="content">
-                <p>Scribble to your heart content! Useful for taking notes, creating rough diagram, or doing a simple sketch.</p>
+                <p>Scribble to your heart content! Useful for taking notes, creating rough diagram, or doing a simple
+                    sketch.</p>
             </div>
             <br>
             <div role="button" class="collapsible row">
                 <div role="button" class="collapsible-right">?</div>
-                <div role="button" class="collapsible-left" onclick="location.href='/lp-calc';event.stopPropagation();">Life Point Calculator</div>
+                <div role="button" class="collapsible-left" onclick="location.href='/lp-calc';event.stopPropagation();">
+                    Life Point Calculator</div>
             </div>
             <div class="content">
-                <p>Two players life point calculator for playing card game. Dice, Coin Flip, and Timer feature coming soon!</p>
+                <p>Two players life point calculator for playing card game. Dice, Coin Flip, and Timer feature coming
+                    soon!</p>
             </div>
             <br>
             <div role="button" class="collapsible row">
                 <div role="button" class="collapsible-right">?</div>
-                <div role="button" class="collapsible-left" onclick="location.href='/mental-math';event.stopPropagation();">Mental Math Practice</div>
+                <div role="button" class="collapsible-left"
+                    onclick="location.href='/mental-math';event.stopPropagation();">Mental Math Practice</div>
             </div>
             <div class="content">
                 <p>Practice mental math, including addition, substraction, multiplication, and division.</p>
             </div>
+            <div class="toggle" id="toggle">Non Static Project</div>
+        </div>
+
+        <div class="back">
+            <h1>Hello World</h1>
+            <div role="button" class="collapsible row">
+                <div role="button" class="collapsible-right">?</div>
+                <div role="button" class="collapsible-left"
+                    onclick="location.href='http://card.tama.id';event.stopPropagation();">Cardtalogue</div>
+            </div>
+            <div class="content">
+                <p>A Trading Card Game (TCG) catalogue project for displaying card collection, trading, and managing
+                    card storage.</p>
+            </div>
+            <br>
+            <div role="button" class="collapsible row">
+                <div role="button" class="collapsible-right">?</div>
+                <div role="button" class="collapsible-left"
+                    onclick="location.href='http://file.tama.id';event.stopPropagation();">
+                    Simple File Share</div>
+            </div>
+            <div class="content">
+                <p>A utility service for sharing file, authenticated using single usage code that is generated using
+                    authenticator time-sensitive code.</p>
+            </div>
+            <div class="toggle" id="toggle-back">Static Project</div>
+        </div>
     </div>
+
     <script src="script.js"></script>
+
 </body>
 
 </html>

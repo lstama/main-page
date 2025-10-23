@@ -19,3 +19,78 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+// const card = document.getElementById('card');
+// const toggleBtn = document.getElementById('toggle');
+// const toggleBackBtn = document.getElementById('toggle-back');
+// const front = card.querySelector('.front');
+// const back = card.querySelector('.back');
+
+// function adjustHeight() {
+//   const visible = card.classList.contains('show-back') ? back : front;
+//   card.style.height = visible.scrollHeight + 'px';
+// }
+
+// toggleBtn.addEventListener('click', () => {
+//   card.classList.toggle('show-back');
+//   adjustHeight();
+// });
+
+// toggleBackBtn.addEventListener('click', () => {
+//   card.classList.toggle('show-back');
+//   adjustHeight();
+// });
+
+// // Initial height
+// window.addEventListener('load', adjustHeight);
+// window.addEventListener('resize', adjustHeight);
+
+// const ro = new ResizeObserver(() => adjustHeight());
+// ro.observe(front);
+// ro.observe(back);
+
+
+const card = document.getElementById('card');
+const toggleBtn = document.getElementById('toggle');
+const toggleBackBtn = document.getElementById('toggle-back');
+const front = card.querySelector('.front');
+const back = card.querySelector('.back');
+
+function adjustHeight() {
+  const visible = card.classList.contains('show-back') ? back : front;
+  card.style.height = visible.scrollHeight + 'px';
+}
+
+function animateSwap() {
+  const showingBack = card.classList.contains('show-back');
+  const current = showingBack ? back : front;
+  const next = showingBack ? front : back;
+
+  // Slide out current
+  current.classList.add('anim-slide-out');
+
+  current.addEventListener('animationend', () => {
+    current.classList.remove('anim-slide-out');
+    card.classList.toggle('show-back');
+    adjustHeight();
+
+    // Slide in next
+    next.classList.add('anim-slide-in');
+    next.addEventListener('animationend', () => {
+      next.classList.remove('anim-slide-in');
+    }, { once: true });
+  }, { once: true });
+}
+
+toggleBtn.addEventListener('click', animateSwap);
+toggleBackBtn.addEventListener('click', animateSwap);
+
+
+// Adjust on load and resize
+window.addEventListener('load', adjustHeight);
+window.addEventListener('resize', adjustHeight);
+
+// Observe for internal height changes
+const ro = new ResizeObserver(() => adjustHeight());
+ro.observe(front);
+ro.observe(back);

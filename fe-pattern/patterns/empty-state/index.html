@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empty State — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Empty State</h1>
+    <p class="demo-sub">A friendly placeholder for when there's nothing to show, with a clear call
+       to action. Toggle between empty and populated to see it swap.</p>
+
+    <section class="box">
+      <div class="empty" id="empty">
+        <svg class="art" viewBox="0 0 120 96" aria-hidden="true">
+          <rect x="8" y="8" width="104" height="80" rx="10" fill="none" stroke="currentColor" stroke-width="4"/>
+          <line x1="8" y1="28" x2="112" y2="28" stroke="currentColor" stroke-width="4"/>
+          <circle cx="60" cy="60" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+          <line x1="60" y1="60" x2="60" y2="48" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="70" y2="66" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <h2 class="title">No tasks yet</h2>
+        <p class="desc">Create your first task to start tracking your progress.</p>
+        <button type="button" class="btn" id="cta">Add task</button>
+      </div>
+
+      <ul class="list" id="list" hidden>
+        <li><span class="dot dot-on"></span> Design review at 10am</li>
+        <li><span class="dot dot-on"></span> Ship the new pattern gallery</li>
+        <li><span class="dot dot-off"></span> Write documentation</li>
+      </ul>
+    </section>
+
+    <div class="controls">
+      <button type="button" class="btn" id="toggle">Toggle empty / filled</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

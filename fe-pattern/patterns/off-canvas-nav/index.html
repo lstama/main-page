@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Off-Canvas Navigation — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <button class="hamburger" id="nav-toggle" type="button"
+            aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+    <span class="brand">Acme</span>
+  </header>
+
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <aside class="drawer" id="site-nav" role="navigation" aria-label="Main navigation" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="brand">Acme</span>
+      <button class="drawer-close" id="nav-close" type="button" aria-label="Close navigation">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      </button>
+    </div>
+    <nav>
+      <ul class="nav-list">
+        <li><a class="nav-link active" href="#">Home</a></li>
+        <li><a class="nav-link" href="#">Products</a></li>
+        <li><a class="nav-link" href="#">Docs</a></li>
+        <li><a class="nav-link" href="#">Pricing</a></li>
+        <li><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main id="main" class="main">
+    <h1>Off-canvas navigation</h1>
+    <p class="demo-sub">Hamburger + overlay on mobile; persistent drawer on desktop. Focus trap, ESC to close, focus restoration.</p>
+    <p>Open the menu with the hamburger button (mobile) or by focusing the toggle and pressing
+       Enter/Space. While the mobile menu is open, Tab stays trapped inside it, Escape closes it,
+       and focus returns to the toggle.</p>
+    <p>On a wide screen the drawer is always visible and the page content flows beside it — no
+       overlay, no toggle. Resize the window to see the layout adapt.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

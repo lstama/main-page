@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resizable Split View — fe-pattern</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <h1 class="page-title">Resizable Split View</h1>
+    <p class="page-sub">Drag the vertical handle to resize the two panels. Layouts track the split with live percentages.</p>
+
+    <div class="split" id="split" aria-orientation="horizontal">
+      <section class="panel panel-left" id="left">
+        <div class="panel-inner">
+          <h2>Left panel</h2>
+          <p>Resize me by dragging the handle. My width is driven by a flex-basis that follows the cursor.</p>
+        </div>
+      </section>
+
+      <div class="handle" id="handle" role="separator" tabindex="0" aria-label="Resize panels" aria-orientation="horizontal" aria-controls="left right">
+        <span class="handle-grip"></span>
+        <span class="handle-grip"></span>
+        <span class="handle-grip"></span>
+      </div>
+
+      <section class="panel panel-right" id="right">
+        <div class="panel-inner">
+          <h2>Right panel</h2>
+          <p>I shrink and grow in response to the same drag. The split is stored as a percentage.</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="readout" id="readout" aria-live="polite">
+      <span>Left <strong id="left-pct">50%</strong></span>
+      <span>Right <strong id="right-pct">50%</strong></span>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

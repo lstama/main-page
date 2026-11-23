@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stopwatch — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Stopwatch</h1>
+    <p class="demo-sub">Start, stop, and record laps. Best and worst laps are highlighted
+       automatically. Uses <span class="key">requestAnimationFrame</span> for smooth display.</p>
+
+    <section class="display" aria-live="polite">
+      <span id="time" class="time">00:00.000</span>
+    </section>
+
+    <section class="controls">
+      <button type="button" id="toggle" class="btn primary">Start</button>
+      <button type="button" id="lap" class="btn" disabled>Lap</button>
+      <button type="button" id="reset" class="btn ghost" disabled>Reset</button>
+    </section>
+
+    <section class="laps" aria-label="Laps">
+      <ul id="lap-list" class="lap-list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

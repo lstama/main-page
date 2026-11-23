@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Range Picker — demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="main" class="main">
+      <h1>Date Range Picker</h1>
+      <p class="demo-sub">
+        Pick a check-in and check-out (or drag across days). Open by clicking the field, then use
+        arrow keys to move, <kbd>Enter</kbd> to set the range, <kbd>T</kbd> for today, <kbd>Esc</kbd>
+        to close.
+      </p>
+
+      <div class="field">
+        <label id="range-label" for="range-input">Stay dates</label>
+        <div class="input-wrap">
+          <button
+            type="button"
+            id="range-trigger"
+            class="range-trigger"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="range-calendar"
+            aria-label="Open date range calendar"
+          >
+            <span aria-hidden="true">📅</span>
+          </button>
+          <input
+            id="range-input"
+            type="text"
+            role="textbox"
+            autocomplete="off"
+            aria-labelledby="range-label"
+            aria-describedby="range-help"
+            placeholder="YYYY-MM-DD – YYYY-MM-DD"
+            readonly
+          />
+        </div>
+        <span id="range-help" class="help">Drag or click two dates. Output updates as you select.</span>
+      </div>
+
+      <div
+        id="range-calendar"
+        class="calendar"
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby="range-cal-title"
+        hidden
+      >
+        <header class="cal-header">
+          <button type="button" id="range-prev" class="cal-nav" aria-label="Previous month">‹</button>
+          <h2 id="range-cal-title" class="cal-title"></h2>
+          <button type="button" id="range-next" class="cal-nav" aria-label="Next month">›</button>
+        </header>
+
+        <div class="cal-grid" role="grid" aria-label="Calendar">
+          <div class="cal-weekdays" role="presentation">
+            <span role="columnheader">Su</span><span role="columnheader">Mo</span><span role="columnheader">Tu</span>
+            <span role="columnheader">We</span><span role="columnheader">Th</span><span role="columnheader">Fr</span>
+            <span role="columnheader">Sa</span>
+          </div>
+          <div class="cal-days" role="rowgroup" id="range-days"></div>
+        </div>
+
+        <footer class="cal-footer">
+          <button type="button" id="range-today" class="cal-today">Today</button>
+          <button type="button" id="range-clear" class="cal-clear">Clear</button>
+          <button type="button" id="range-close" class="cal-close">Close</button>
+        </footer>
+      </div>
+
+      <div class="field">
+        <label id="range-selected-label">Selected range</label>
+        <div id="range-output" class="selected-output" role="status" aria-live="polite">None</div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

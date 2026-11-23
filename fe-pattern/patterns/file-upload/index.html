@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Upload — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>File upload with preview</h1>
+    <p class="demo-sub">Drag-drop on desktop, tap to pick on mobile. Image thumbnails + file info,
+       remove before submit.</p>
+
+    <form class="upload" id="upload-form" autocomplete="off">
+      <div class="drop-zone" id="drop-zone" role="button" tabindex="0"
+           aria-label="Click or drag files to upload">
+        <svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <p class="drop-text"><strong>Click to upload</strong> or drag and drop</p>
+        <p class="drop-hint">PNG, JPG, PDF up to 2MB</p>
+        <input type="file" id="file-input" class="file-input" multiple accept="image/*,.pdf" />
+      </div>
+
+      <ul class="preview-list" id="preview-list" role="list" aria-label="Selected files"></ul>
+
+      <p class="upload-status" id="upload-status" role="status" aria-live="polite"></p>
+
+      <button class="submit-btn" id="submit-btn" type="submit" disabled>Upload</button>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

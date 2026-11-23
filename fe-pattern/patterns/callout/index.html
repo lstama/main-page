@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Callout — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Callout</h1>
+    <p class="demo-sub">Inline contextual blocks for notes, tips, warnings, and errors. Each carries
+       a semantic role and a color-coded accent bar.</p>
+
+    <article class="doc" aria-label="Callout examples">
+      <section class="callout callout-info" role="note">
+        <span class="icon" aria-hidden="true">i</span>
+        <p class="body"><strong>Note:</strong> Settings are saved automatically once you leave the field.</p>
+      </section>
+
+      <section class="callout callout-tip" role="comment">
+        <span class="icon" aria-hidden="true">✦</span>
+        <p class="body"><strong>Tip:</strong> Press <kbd>⌘</kbd><kbd>K</kbd> to open the command palette.</p>
+      </section>
+
+      <section class="callout callout-warning" role="alert">
+        <span class="icon" aria-hidden="true">!</span>
+        <p class="body"><strong>Warning:</strong> Your trial expires in 3 days. Upgrade to keep access.</p>
+      </section>
+
+      <section class="callout callout-error" role="alert">
+        <span class="icon" aria-hidden="true">✕</span>
+        <p class="body"><strong>Error:</strong> Unable to sync. Check your connection and retry.</p>
+      </section>
+    </article>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

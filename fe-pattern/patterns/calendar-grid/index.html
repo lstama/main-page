@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar Grid — fe-pattern</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <h1 class="page-title">Calendar Grid</h1>
+    <p class="page-sub">Navigate months, hover to preview, and click a day to select it.</p>
+
+    <div class="calendar" id="calendar">
+      <header class="cal-head">
+        <button type="button" class="nav" id="prev" aria-label="Previous month">&#8249;</button>
+        <h2 class="cal-title" id="title" aria-live="polite"></h2>
+        <button type="button" class="nav" id="next" aria-label="Next month">&#8250;</button>
+      </header>
+
+      <div class="cal-grid" id="grid" role="grid" aria-label="Days"></div>
+    </div>
+
+    <p class="selected" id="selected" aria-live="polite">No day selected</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Timeline</h1>
+    <p class="demo-sub">Chronological event list. Vertical on mobile, compact on desktop.
+       Fully semantic HTML.</p>
+
+    <section class="timeline" aria-label="Project timeline">
+      <article class="event">
+        <time class="event-date" datetime="2026-01-15">Jan 15, 2026</time>
+        <h2 class="event-title">Kickoff</h2>
+        <p class="event-desc">Project launched with a team of five and initial budget approved.</p>
+      </article>
+
+      <article class="event">
+        <time class="event-date" datetime="2026-03-01">Mar 1, 2026</time>
+        <h2 class="event-title">Alpha Release</h2>
+        <p class="event-desc">First working prototype shipped to internal testers.</p>
+      </article>
+
+      <article class="event">
+        <time class="event-date" datetime="2026-05-20">May 20, 2026</time>
+        <h2 class="event-title">Beta Launch</h2>
+        <p class="event-desc">Public beta opened with onboarding flow and analytics wired up.</p>
+      </article>
+
+      <article class="event">
+        <time class="event-date" datetime="2026-07-10">Jul 10, 2026</time>
+        <h2 class="event-title">General Availability</h2>
+        <p class="event-desc">Official launch with documentation, support, and billing live.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

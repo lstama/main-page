@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markdown Editor — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Markdown Editor</h1>
+    <p class="demo-sub">A dependency-free split preview. Edit on the left, see rendered HTML on the
+       right. Supports headings, lists, code, links, and inline formatting.</p>
+
+    <section class="panes">
+      <div class="pane">
+        <label for="editor">Markdown</label>
+        <textarea id="editor" class="editor" spellcheck="false" placeholder="# Heading"></textarea>
+      </div>
+      <div class="pane">
+        <label for="preview">Preview</label>
+        <article id="preview" class="preview" aria-label="Rendered preview"></article>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Radio — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Custom Radio</h1>
+    <p class="demo-sub">A grouped set of <span class="key">&lt;input type="radio"&gt;</span> inputs
+       for single-select choices. The native inputs are hidden; the visible option is a
+       <span class="key">&lt;label&gt;</span> whose ring is driven by the input's
+       <span class="key">:checked</span> and <span class="key">:focus-visible</span> states.</p>
+
+    <fieldset class="radio-group">
+      <legend class="legend">Choose a plan</legend>
+
+      <label class="radio">
+        <input type="radio" name="plan" class="radio-input" value="free" checked />
+        <span class="radio-circle" aria-hidden="true"></span>
+        <span class="radio-text">Free <span class="radio-tag">0/mo</span></span>
+      </label>
+
+      <label class="radio">
+        <input type="radio" name="plan" class="radio-input" value="pro" />
+        <span class="radio-circle" aria-hidden="true"></span>
+        <span class="radio-text">Pro <span class="radio-tag">9/mo</span></span>
+      </label>
+
+      <label class="radio">
+        <input type="radio" name="plan" class="radio-input" value="team" />
+        <span class="radio-circle" aria-hidden="true"></span>
+        <span class="radio-text">Team <span class="radio-tag">29/mo</span></span>
+      </label>
+    </fieldset>
+
+    <p id="radio-output" class="radio-output" aria-live="polite">Selected plan: free</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alerts — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Alerts</h1>
+    <p class="demo-sub">Dismissible status messages with roles, icons, and keyboard support.
+       Press <span class="key">Esc</span> or click the button to dismiss each one.</p>
+
+    <section class="alerts">
+      <div class="alert role-info" role="status">
+        <span class="alert-icon" aria-hidden="true">i</span>
+        <span class="alert-msg">Your session will expire in 5 minutes.</span>
+        <button type="button" class="alert-close" aria-label="Dismiss this message">×</button>
+      </div>
+
+      <div class="alert role-success" role="status">
+        <span class="alert-icon" aria-hidden="true">✓</span>
+        <span class="alert-msg">Changes saved successfully.</span>
+        <button type="button" class="alert-close" aria-label="Dismiss this message">×</button>
+      </div>
+
+      <div class="alert role-warning" role="alert">
+        <span class="alert-icon" aria-hidden="true">!</span>
+        <span class="alert-msg">Your trial ends tomorrow. Upgrade to keep access.</span>
+        <button type="button" class="alert-close" aria-label="Dismiss this message">×</button>
+      </div>
+
+      <div class="alert role-error" role="alert">
+        <span class="alert-icon" aria-hidden="true">✕</span>
+        <span class="alert-msg">Payment failed. Please check your card details.</span>
+        <button type="button" class="alert-close" aria-label="Dismiss this message">×</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

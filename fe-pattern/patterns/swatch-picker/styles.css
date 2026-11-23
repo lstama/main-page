@@ -1,0 +1,134 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #111827;
+  background: #f4f5f7;
+  line-height: 1.5;
+}
+
+.main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.main h1 { margin-top: 0; }
+.demo-sub { color: #4b5563; }
+
+/* --- Fieldset reset --- */
+.swatch-group {
+  border: none;
+  margin: 0 0 24px;
+  padding: 0;
+}
+.swatch-legend {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+.swatch-value {
+  color: #4f46e5;
+  font-weight: 700;
+}
+
+/* --- Radio row --- */
+.swatch-radio-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* --- Swatch (label wraps hidden radio) --- */
+.swatch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+.swatch input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+/* Color dots */
+.swatch-dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.swatch-check {
+  position: absolute;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.swatch input:checked + .swatch-dot {
+  border-color: #111827;
+  transform: scale(1.08);
+}
+.swatch input:checked + .swatch-dot ~ .swatch-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Size pills */
+.swatch-size {
+  min-width: 48px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 2px solid #d1d5db;
+  background: #fff;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.swatch-label-text {
+  font-weight: 600;
+}
+/* Size pills — highlight the whole pill (label) when its radio is checked */
+.swatch-size:has(input:checked) {
+  border-color: #4f46e5;
+  background: #4f46e5;
+  color: #fff;
+}
+.swatch-size:has(input:checked) .swatch-label-text {
+  color: #fff;
+}
+
+/* Focus ring for keyboard users */
+.swatch input:focus-visible + .swatch-dot,
+.swatch input:focus-visible + .swatch-label-text {
+  outline: 3px solid #4f46e5;
+  outline-offset: 3px;
+}
+
+/* --- Status --- */
+.status {
+  margin-top: 8px;
+  color: #4b5563;
+  font-size: 0.95rem;
+  min-height: 1.2em;
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .swatch-dot {
+    width: 40px;
+    height: 40px;
+  }
+  .swatch-size {
+    min-width: 44px;
+    height: 44px;
+    padding: 0 12px;
+  }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gradient Generator — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Gradient Generator</h1>
+    <p class="demo-sub">Pick two colors and an angle, then copy the CSS. The preview updates live.</p>
+
+    <section class="controls">
+      <label>Color 1
+        <input type="color" id="c1" value="#60a5fa" />
+      </label>
+      <label>Color 2
+        <input type="color" id="c2" value="#a78bfa" />
+      </label>
+      <label>Angle
+        <input type="range" id="angle" min="0" max="360" value="90" />
+        <span id="angle-val" class="angle-val">90°</span>
+      </label>
+    </section>
+
+    <section class="preview" id="preview" aria-label="Gradient preview"></section>
+
+    <section class="output">
+      <label for="css">CSS</label>
+      <input type="text" id="css" readonly />
+      <button type="button" id="copy" class="btn">Copy</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

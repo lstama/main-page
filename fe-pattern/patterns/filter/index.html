@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filter Panel — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Filter Panel</h1>
+    <p class="demo-sub">Filter a card grid by category with checkboxes. Results update live; the count
+       and empty state reflect the current filter.</p>
+
+    <section class="layout">
+      <aside class="panel" aria-label="Filters">
+        <fieldset>
+          <legend>Category</legend>
+          <label class="filter-row"><input type="checkbox" class="filter" data-cat="design" checked /> Design</label>
+          <label class="filter-row"><input type="checkbox" class="filter" data-cat="dev" checked /> Development</label>
+          <label class="filter-row"><input type="checkbox" class="filter" data-cat="marketing" checked /> Marketing</label>
+          <label class="filter-row"><input type="checkbox" class="filter" data-cat="sales" checked /> Sales</label>
+        </fieldset>
+        <button type="button" class="btn reset" id="reset">Reset</button>
+      </aside>
+
+      <section class="results">
+        <p class="result-count" id="result-count" aria-live="polite">Showing 8 items</p>
+        <div class="grid" id="grid"></div>
+        <p class="empty" id="empty" hidden>No items match your filters.</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

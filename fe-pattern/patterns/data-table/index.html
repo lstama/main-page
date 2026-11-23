@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Data Table — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Responsive data table</h1>
+    <p class="demo-sub">Grid on desktop, cards on mobile. Sortable columns.</p>
+
+    <div class="table-wrap">
+      <table class="data-table" id="demo-table">
+        <thead>
+          <tr>
+            <th data-key="name" sortable>Name <span class="sort-arrow" aria-hidden="true"></span></th>
+            <th data-key="role" sortable>Role <span class="sort-arrow" aria-hidden="true"></span></th>
+            <th data-key="team">Team</th>
+            <th data-key="status" sortable>Status <span class="sort-arrow" aria-hidden="true"></span></th>
+            <th data-key="joined" sortable>Joined <span class="sort-arrow" aria-hidden="true"></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-key="name" data-label="Name">Ada Lovelace</td>
+            <td data-key="role" data-label="Role">Engineer</td>
+            <td data-key="team" data-label="Team">Platform</td>
+            <td data-key="status" data-label="Status"><span class="badge badge-active">Active</span></td>
+            <td data-key="joined" data-label="Joined">2021-03-15</td>
+          </tr>
+          <tr>
+            <td data-key="name" data-label="Name">Alan Turing</td>
+            <td data-key="role" data-label="Role">Designer</td>
+            <td data-key="team" data-label="Team">Design</td>
+            <td data-key="status" data-label="Status"><span class="badge badge-active">Active</span></td>
+            <td data-key="joined" data-label="Joined">2019-07-01</td>
+          </tr>
+          <tr>
+            <td data-key="name" data-label="Name">Grace Hopper</td>
+            <td data-key="role" data-label="Role">Manager</td>
+            <td data-key="team" data-label="Team">Engineering</td>
+            <td data-key="status" data-label="Status"><span class="badge badge-away">Away</span></td>
+            <td data-key="joined" data-label="Joined">2018-11-20</td>
+          </tr>
+          <tr>
+            <td data-key="name" data-label="Name">Linus Torvalds</td>
+            <td data-key="role" data-label="Role">Engineer</td>
+            <td data-key="team" data-label="Team">Core</td>
+            <td data-key="status" data-label="Status"><span class="badge badge-active">Active</span></td>
+            <td data-key="joined" data-label="Joined">2020-01-10</td>
+          </tr>
+          <tr>
+            <td data-key="name" data-label="Name">Margaret Hamilton</td>
+            <td data-key="role" data-label="Role">Lead</td>
+            <td data-key="team" data-label="Team">Platform</td>
+            <td data-key="status" data-label="Status"><span class="badge badge-inactive">Inactive</span></td>
+            <td data-key="joined" data-label="Joined">2017-05-30</td>
+          </tr>
+          <tr>
+            <td data-key="name" data-label="Name">Katherine Johnson</td>
+            <td data-key="role" data-label="Role">Analyst</td>
+            <td data-key="team" data-label="Team">Data</td>
+            <td data-key="status" data-label="Status"><span class="badge badge-active">Active</span></td>
+            <td data-key="joined" data-label="Joined">2022-08-12</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="demo-note" role="status" aria-live="polite" id="row-count"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

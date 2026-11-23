@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Countdown — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Countdown</h1>
+    <p class="demo-sub">Set a duration, start, pause, and reset. Fires a completion event when it
+       reaches zero. Time is tracked with a timestamp delta so it stays accurate.</p>
+
+    <section class="clock" aria-live="polite">
+      <div class="unit"><span id="h" class="unit-num">00</span><span class="unit-label">Hours</span></div>
+      <div class="colon">:</div>
+      <div class="unit"><span id="m" class="unit-num">00</span><span class="unit-label">Minutes</span></div>
+      <div class="colon">:</div>
+      <div class="unit"><span id="s" class="unit-num">00</span><span class="unit-label">Seconds</span></div>
+    </section>
+
+    <section class="inputs" id="inputs">
+      <label>Hours <input type="number" id="in-h" value="0" min="0" max="23" /></label>
+      <label>Minutes <input type="number" id="in-m" value="5" min="0" max="59" /></label>
+      <label>Seconds <input type="number" id="in-s" value="0" min="0" max="59" /></label>
+    </section>
+
+    <section class="controls">
+      <button type="button" id="start" class="btn primary">Start</button>
+      <button type="button" id="pause" class="btn" disabled>Pause</button>
+      <button type="button" id="reset" class="btn ghost" disabled>Reset</button>
+    </section>
+
+    <p class="status" id="status" aria-live="polite"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

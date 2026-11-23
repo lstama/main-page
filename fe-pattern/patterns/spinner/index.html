@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spinner — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Spinner</h1>
+    <p class="demo-sub">An accessible indeterminate loading spinner. Uses <span class="key">role="status"</span>
+       and <span class="key">aria-busy</span>; scales via CSS and respects reduced motion.</p>
+
+    <section class="row" aria-label="Spinner sizes">
+      <div class="spinner-box">
+        <div class="spinner" role="status" aria-label="Loading"></div>
+        <span class="size-label">Small</span>
+      </div>
+      <div class="spinner-box">
+        <div class="spinner spinner-md" role="status" aria-label="Loading"></div>
+        <span class="size-label">Medium</span>
+      </div>
+      <div class="spinner-box">
+        <div class="spinner spinner-lg" role="status" aria-label="Loading"></div>
+        <span class="size-label">Large</span>
+      </div>
+    </section>
+
+    <section class="demo" aria-live="polite">
+      <button type="button" class="btn" id="toggle">Start loading</button>
+      <div class="spinner spinner-md" id="inline" role="status" aria-label="Loading" hidden></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

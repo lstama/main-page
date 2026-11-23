@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Picker — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Color Picker</h1>
+    <p class="demo-sub">Pick from preset swatches or choose a custom color. Keyboard: arrow keys
+       navigate, Enter/Space selects, Esc closes.</p>
+
+    <div class="field">
+      <label id="color-label" for="color-display">Selected color</label>
+      <div class="color-trigger-wrap">
+        <button
+          type="button"
+          id="color-trigger"
+          class="color-trigger"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-controls="color-picker"
+          aria-label="Open color picker"
+        >
+          <span id="color-swatch" class="color-swatch" aria-hidden="true"></span>
+          <span id="color-hex" class="color-hex">#2563EB</span>
+          <span class="sr-only">Open color picker</span>
+        </button>
+        <input id="color-display" class="color-display" type="text" value="#2563EB" readonly aria-labelledby="color-label" />
+      </div>
+    </div>
+
+    <div id="color-picker" class="color-picker" role="dialog" aria-modal="false" aria-labelledby="color-picker-title" hidden>
+      <header class="cp-header">
+        <h2 id="color-picker-title" class="cp-title">Choose a color</h2>
+        <button type="button" id="color-close" class="cp-close" aria-label="Close picker">✕</button>
+      </header>
+
+      <div id="cp-swatches" class="cp-swatches" role="group" aria-label="Preset colors"></div>
+
+      <div class="cp-custom">
+        <label for="color-native" class="cp-native-label">Custom color</label>
+        <div class="cp-native-wrap">
+          <input id="color-native" type="color" value="#2563EB" aria-label="Custom color input" />
+          <button type="button" id="color-apply-native" class="cp-apply">Use this color</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label id="preview-label">Preview</label>
+      <div id="color-preview" class="color-preview" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-step Form — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo">Acme</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Multi-step Form</h1>
+    <p class="demo-sub">Split a long form into guided steps. Progress is saved as you go,
+       focus moves to each step, and you can't advance until the fields are valid.</p>
+
+    <div class="card">
+      <!-- Progress bar -->
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <!-- Stepper -->
+      <ol class="stepper" id="stepper" role="list">
+        <li class="step" data-step="0" aria-current="step">
+          <span class="step-marker" aria-hidden="true">1</span>
+          <span class="step-label">Account</span>
+        </li>
+        <li class="step" data-step="1">
+          <span class="step-marker" aria-hidden="true">2</span>
+          <span class="step-label">Profile</span>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step-marker" aria-hidden="true">3</span>
+          <span class="step-label">Review</span>
+        </li>
+      </ol>
+
+      <form id="wizard" novalidate>
+        <!-- Step 1: Account -->
+        <section class="panel" data-panel="0" aria-labelledby="step-title-0">
+          <h2 id="step-title-0" class="panel-title" tabindex="-1">Create your account</h2>
+          <div class="field">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-err" />
+            <span class="error" id="email-err" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="password">Password <span class="req" aria-hidden="true">*</span></label>
+            <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required aria-describedby="password-hint password-err" />
+            <span class="hint" id="password-hint">At least 8 characters.</span>
+            <span class="error" id="password-err" role="alert"></span>
+          </div>
+        </section>
+
+        <!-- Step 2: Profile -->
+        <section class="panel" data-panel="1" hidden aria-labelledby="step-title-1">
+          <h2 id="step-title-1" class="panel-title" tabindex="-1">Your profile</h2>
+          <div class="field">
+            <label for="fullname">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input id="fullname" name="fullname" type="text" autocomplete="name" required aria-describedby="fullname-err" />
+            <span class="error" id="fullname-err" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="company">Company (optional)</label>
+            <input id="company" name="company" type="text" autocomplete="organization" />
+          </div>
+        </section>
+
+        <!-- Step 3: Review -->
+        <section class="panel" data-panel="2" hidden aria-labelledby="step-title-2">
+          <h2 id="step-title-2" class="panel-title" tabindex="-1">Review &amp; confirm</h2>
+          <dl class="review" id="review"></dl>
+          <p class="review-note">Use <strong>Back</strong> to change anything.</p>
+        </section>
+
+        <!-- Step 4: Done -->
+        <section class="panel panel-done" data-panel="3" hidden aria-labelledby="step-title-3">
+          <h2 id="step-title-3" class="panel-title panel-title-done" tabindex="-1">You're all set! 🎉</h2>
+          <p class="done-text">Your account has been created. This is a demo — nothing was submitted.</p>
+          <button type="button" id="restart" class="btn-primary">Start over</button>
+        </section>
+      </form>
+
+      <div class="actions">
+        <button type="button" id="back" class="btn-ghost">Back</button>
+        <button type="button" id="next" class="btn-primary">Next</button>
+      </div>
+
+      <div class="form-status" role="status" aria-live="polite" id="form-status"></div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

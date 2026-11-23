@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Fetching States — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Data fetching states</h1>
+    <p class="demo-sub">Handle loading, success, error, and empty — the four states every fetch needs.</p>
+
+    <div class="controls">
+      <button class="demo-btn" id="fetchBtn" type="button">Fetch users</button>
+      <label class="flip">
+        <input type="checkbox" id="failToggle" />
+        <span>Simulate server error</span>
+      </label>
+    </div>
+
+    <!-- ONE container, swapped per state. No flicker, no layout jump. -->
+    <div id="state" class="state state-idle">
+      <p class="idle">Press “Fetch users” to load data.</p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

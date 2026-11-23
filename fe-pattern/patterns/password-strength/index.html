@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Strength Meter — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Password strength meter</h1>
+    <p class="demo-sub">Real-time feedback that measures a password against concrete criteria.</p>
+
+    <div class="field">
+      <label for="password">Choose a password</label>
+      <input id="password" type="password" autocomplete="new-password" aria-describedby="strength-hint" />
+    </div>
+
+    <!-- 5-segment meter: fill left-to-right as strength grows -->
+    <div class="meter" role="status" aria-live="polite" aria-describedby="strength-hint">
+      <div class="meter-bars">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <p class="strength-label" id="strength-label">Enter a password</p>
+    </div>
+
+    <!-- Checklist: shows which criteria are met. Drives the score too. -->
+    <ul class="criteria" id="criteria" aria-hidden="true">
+      <li data-criterion="length"><span class="check">✓</span> At least 8 characters</li>
+      <li data-criterion="lower"><span class="check">✓</span> One lowercase letter</li>
+      <li data-criterion="upper"><span class="check">✓</span> One uppercase letter</li>
+      <li data-criterion="digit"><span class="check">✓</span> One number</li>
+      <li data-criterion="special"><span class="check">✓</span> One special character (!@#$…)</li>
+    </ul>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

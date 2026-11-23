@@ -1,0 +1,99 @@
+/* Parallax — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #0f172a;
+  --fg: #f2f2f2;
+  --muted: #94a3b8;
+  --card-bg: #1e293b;
+  --border: #334155;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.main {
+  width: 100%;
+}
+
+/* Hero with stacked parallax layers */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+/* Background: gradient sky */
+.layer-bg {
+  background: linear-gradient(180deg, #0b1021 0%, #1b3a6b 55%, #3b6ea5 100%);
+}
+
+/* Mid: distant hills */
+.layer-mid {
+  background:
+    radial-gradient(120% 80% at 20% 100%, #334d73 0%, transparent 60%),
+    radial-gradient(120% 80% at 80% 100%, #2a405f 0%, transparent 60%);
+  mix-blend-mode: screen;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.demo-sub {
+  color: var(--muted);
+  max-width: 40ch;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.key {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+  color: var(--muted);
+  line-height: 1.6;
+  background: var(--bg);
+}
+
+.content p { margin: 0 0 1.25rem; }
+
+/* Reduced motion: no JS parallax, static stacked layers */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer { transform: none !important; }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avatar — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Avatar</h1>
+    <p class="demo-sub">A circular avatar with an image fallback to initials, plus a status dot
+       (online, away, offline). Sizes scale via a CSS variable.</p>
+
+    <section class="row" aria-label="Avatar sizes">
+      <div class="avatar-group">
+        <span class="avatar avatar-sm" role="img" aria-label="Ada" style="--size:32px"><span class="initials">AD</span><span class="status status-online"></span></span>
+        <span class="avatar avatar-md" role="img" aria-label="Grace" style="--size:48px"><img src="https://i.pravatar.cc/96?img=47" alt="" /><span class="status status-away"></span></span>
+        <span class="avatar avatar-lg" role="img" aria-label="Alan" style="--size:64px"><img src="https://i.pravatar.cc/96?img=12" alt="" /><span class="status status-offline"></span></span>
+      </div>
+    </section>
+
+    <section class="row" aria-label="Avatar with name">
+      <div class="profile">
+        <span class="avatar avatar-lg" role="img" aria-label="Ada Lovelace" style="--size:56px"><span class="initials">AD</span><span class="status status-online"></span></span>
+        <div class="profile-meta">
+          <span class="profile-name">Ada Lovelace</span>
+          <span class="profile-status status-online">Online</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

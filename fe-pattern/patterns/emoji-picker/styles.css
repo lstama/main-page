@@ -1,0 +1,105 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #111827;
+  background: radial-gradient(1200px 600px at 80% -10%, #fef9c3 0, #f9fafb 50%);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.page-sub {
+  margin: 6px 0 24px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 360px;
+  max-width: 90vw;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 10px 12px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+.field-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: inherit;
+  background: transparent;
+  color: #111827;
+}
+.toggle {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  color: #b45309;
+  cursor: pointer;
+  background: #fef3c7;
+  transition: background 0.15s, transform 0.1s;
+}
+.toggle:hover { background: #fde68a; }
+.toggle:active { transform: scale(0.94); }
+.toggle[aria-expanded="true"] { background: #fcd34d; }
+
+.picker {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 320px;
+  max-width: 90vw;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22);
+  padding: 12px;
+  z-index: 20;
+  animation: picker-in 0.16s ease;
+}
+@keyframes picker-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.picker[hidden] { display: none; }
+
+.picker-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  height: 220px;
+  overflow-y: auto;
+  padding: 4px;
+  outline: none;
+}
+.picker-grid button {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 1.35rem;
+  cursor: pointer;
+  transition: background 0.12s, transform 0.1s;
+}
+.picker-grid button:hover { background: #fef3c7; transform: scale(1.2); }
+.picker-grid button:focus-visible { box-shadow: 0 0 0 2px #fbbf24; }

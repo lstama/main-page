@@ -1,0 +1,142 @@
+/* Custom Checkbox — demo styles. Pure CSS, no framework.
+
+   Technique: the native input is visually hidden but kept in the flow for
+   accessibility and form submission. The visible box is the label's ::before,
+   and its state is driven by the sibling input's :checked / :focus-visible /
+   :disabled pseudo-classes. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --accent: #2563eb;
+  --radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --accent: #60a5fa;
+  }
+}
+
+.main {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 { font-size: 1.75rem; margin: 0 0 0.25rem; }
+
+.demo-sub { color: var(--muted); margin: 0 0 1.5rem; line-height: 1.5; }
+
+.key {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+}
+
+.box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.hint { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
+
+/* The label is the clickable wrapper. */
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem;
+  user-select: none;
+  padding: 0.4rem 0;
+}
+
+/* Hide the native input but keep it focusable and clickable. */
+.check-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* The visible box. */
+.check-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.check-mark, .check-minus {
+  width: 12px;
+  height: 8px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.check-minus { opacity: 1; display: none; }
+
+/* Checked state. */
+.check-input:checked + .check-box {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.check-input:checked + .check-box .check-mark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Indeterminate state: show the minus instead of the check. */
+.check-input.indeterminate + .check-box {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.check-input.indeterminate + .check-box .check-mark { opacity: 0; }
+.check-input.indeterminate + .check-box .check-minus {
+  display: block;
+  opacity: 1;
+}
+
+/* Focus ring for keyboard users. */
+.check-input:focus-visible + .check-box {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Disabled state. */
+.check-input:disabled ~ .check-box {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.check-label { color: var(--fg); }
+.check-input:disabled ~ .check-label { color: var(--muted); cursor: not-allowed; }

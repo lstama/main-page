@@ -1,0 +1,92 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(1200px 600px at 20% -10%, #eef2ff 0, #f5f6f8 55%);
+  color: #111827;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+}
+
+.editor-wrap {
+  width: 100%;
+  max-width: 620px;
+  height: 420px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(30, 58, 138, 0.12);
+  backdrop-filter: blur(8px);
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.editor-head h1 { margin: 0; font-size: 1.1rem; font-weight: 650; }
+.editor-sub { margin: 6px 0 0; font-size: 0.8rem; color: #6b7280; }
+
+.editor {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #1f2937;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 12px;
+  transition: border-color 0.15s;
+}
+.editor:focus { border-color: #c7d2fe; }
+.editor:focus-visible { box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); }
+.editor p { margin: 0 0 10px; }
+
+.editor-log {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #6366f1;
+  min-height: 1.3em;
+  font-variant-numeric: tabular-nums;
+}
+
+.toolbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  background: #1e1b4b;
+  border-radius: 12px;
+  box-shadow: 0 12px 34px rgba(30, 27, 75, 0.35);
+  z-index: 50;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.toolbar[hidden] {
+  display: none;
+}
+.toolbar.is-hiding { opacity: 0; transform: translateY(4px); }
+
+.tb-btn {
+  display: grid;
+  place-items: center;
+  width: 30px; height: 30px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #c7d2fe;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.tb-btn:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.tb-btn:active { transform: scale(0.92); }
+.tb-btn.active { background: #6366f1; color: #fff; }
+
+.tb-sep {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.18);
+}

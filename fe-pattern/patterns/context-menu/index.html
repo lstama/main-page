@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Context Menu — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Context Menu</h1>
+    <p class="demo-sub">Right-click the card for a custom menu. Keyboard support: focus the card,
+       press <span class="key">Menu</span> or <span class="key">Shift+F10</span>, navigate with
+       arrows, close with <span class="key">Esc</span>.</p>
+
+    <section class="stage" id="stage">
+      <article class="card" id="card" tabindex="0" aria-label="Item with context menu">
+        <div class="card-dot" aria-hidden="true"></div>
+        <h2 class="card-title">Draggable card</h2>
+        <p class="card-desc">Right-click (or use the keyboard) to open the menu.</p>
+      </article>
+    </section>
+
+    <p class="log" id="log" aria-live="polite">No action taken.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

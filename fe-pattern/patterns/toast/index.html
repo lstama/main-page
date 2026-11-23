@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Notifications — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Toast notifications</h1>
+    <p class="demo-sub">Trigger a message that appears, auto-dismisses, and stacks cleanly.</p>
+
+    <div class="btn-row">
+      <button class="demo-btn success" type="button" data-type="success">Success</button>
+      <button class="demo-btn info" type="button" data-type="info">Info</button>
+      <button class="demo-btn warning" type="button" data-type="warning">Warning</button>
+      <button class="demo-btn error" type="button" data-type="error">Error</button>
+    </div>
+
+    <p class="demo-note">Each toast is role="status", dismissible, and removes itself after a timeout.</p>
+  </main>
+
+  <div class="toast-host" role="region" aria-label="Notifications"></div>
+  <script src="app.js"></script>
+</body>
+</html>

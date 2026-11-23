@@ -1,0 +1,109 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.demo { width: 100%; max-width: 360px; }
+.demo h1 { font-size: 1.4rem; margin: 0 0 8px; }
+.demo-sub { color: #4b5563; margin: 0 0 22px; }
+
+.menu-wrap { display: flex; }
+
+/* The menu is positioned relative to this wrapper. */
+.menu { position: relative; width: 100%; }
+
+/* --- Trigger button --- */
+.menu-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+  font: inherit;
+  font-weight: 600;
+  color: #111827;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.menu-btn:hover { background: #f9fafb; }
+.menu-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.35);
+  border-color: #4f46e5;
+}
+.menu-btn-icon {
+  flex: none;
+  color: #6b7280;
+  transition: transform 0.15s ease;
+}
+.menu-btn[aria-expanded="true"] .menu-btn-icon { transform: rotate(180deg); }
+
+/* --- Menu popup --- */
+.menu-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+.menu-list[hidden] { display: none; }
+
+.menu-item {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  font: inherit;
+  text-align: left;
+  color: #111827;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.menu-item:hover { background: #f3f4f6; }
+.menu-item:focus-visible {
+  outline: none;
+  background: #4f46e5;
+  color: #fff;
+}
+
+/* Separator between groups of items */
+.menu-sep {
+  height: 0;
+  margin: 4px 8px;
+  overflow: hidden;
+}
+.menu-sep hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+.menu-danger { color: #dc2626; }
+.menu-danger:hover { background: #fee2e2; }
+.menu-danger:focus-visible { color: #fff; }
+
+.demo-note {
+  margin: 20px 0 0;
+  color: #6b7280;
+  font-size: 0.92rem;
+  min-height: 1.2em;
+}
+.demo-note.seen { color: #059669; font-weight: 600; }

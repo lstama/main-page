@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Todo List</h1>
+    <p class="demo-sub">Add tasks, toggle completion, and delete. Everything persists to
+       <span class="key">localStorage</span> and survives reload. Filter by all / active / done.</p>
+
+    <section class="box">
+      <form id="form" class="add">
+        <input type="text" id="input" class="input" placeholder="What needs doing?" aria-label="New task" autocomplete="off" />
+        <button type="submit" class="btn add-btn" aria-label="Add task">Add</button>
+      </form>
+
+      <ul class="list" id="list" role="list"></ul>
+
+      <div class="footer">
+        <span class="count" id="count">0 items left</span>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button type="button" class="filter active" data-filter="all">All</button>
+          <button type="button" class="filter" data-filter="active">Active</button>
+          <button type="button" class="filter" data-filter="done">Done</button>
+        </div>
+        <button type="button" class="btn clear" id="clear">Clear completed</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

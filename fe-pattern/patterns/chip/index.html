@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chip — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Chip</h1>
+    <p class="demo-sub">Compact, removable content units. Click <span class="key">×</span> to dismiss;
+       dismissed chips can be restored with <span class="key">Undo</span>.</p>
+
+    <section class="box">
+      <div class="chip-row" id="chip-row" role="group" aria-label="Selected filters">
+        <span class="chip chip-accent">Design<span class="chip-x" role="button" tabindex="0" aria-label="Remove Design"><span class="chip-glyph">&times;</span></span></span>
+        <span class="chip chip-success">Approved<span class="chip-x" role="button" tabindex="0" aria-label="Remove Approved"><span class="chip-glyph">&times;</span></span></span>
+        <span class="chip chip-warning">Pending<span class="chip-x" role="button" tabindex="0" aria-label="Remove Pending"><span class="chip-glyph">&times;</span></span></span>
+        <span class="chip chip-danger">Urgent<span class="chip-x" role="button" tabindex="0" aria-label="Remove Urgent"><span class="chip-glyph">&times;</span></span></span>
+      </div>
+      <button type="button" class="btn undo" id="undo" hidden>Undo</button>
+    </section>
+
+    <section class="box">
+      <span class="chip chip-outlined">Add your own</span>
+      <span class="chip chip-outlined">and tags</span>
+      <span class="chip chip-outlined">here</span>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

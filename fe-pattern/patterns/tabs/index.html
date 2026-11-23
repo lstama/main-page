@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabs — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Tabs</h1>
+    <p class="demo-sub">Accessible tabbed interface. Arrow keys navigate tabs; Home/End jump.
+       Works with mouse, keyboard, and touch.</p>
+
+    <div class="tabs" id="tabs">
+      <div class="tabs-list" role="tablist" aria-label="Project details">
+        <button id="tab-1" class="tab" role="tab" aria-selected="true" aria-controls="panel-1" tabindex="0">Overview</button>
+        <button id="tab-2" class="tab" role="tab" aria-selected="false" aria-controls="panel-2" tabindex="-1">Features</button>
+        <button id="tab-3" class="tab" role="tab" aria-selected="false" aria-controls="panel-3" tabindex="-1">Pricing</button>
+      </div>
+
+      <section id="panel-1" class="tab-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+        <h2>Overview</h2>
+        <p>This tabbed interface follows the WAI-ARIA authoring practices for the tabs pattern.
+           Each tab is a button with proper ARIA roles, and panels are linked via
+           aria-controls and aria-labelledby.</p>
+        <p>Use the arrow keys to move between tabs, Home to jump to the first tab, and End to
+           jump to the last tab. Panels are focusable and announced by screen readers.</p>
+      </section>
+
+      <section id="panel-2" class="tab-panel" role="tabpanel" tabindex="-1" aria-labelledby="tab-2" hidden>
+        <h2>Features</h2>
+        <ul>
+          <li>Full keyboard support (arrows, Home, End, and optionally Up/Down).</li>
+          <li>Touch-friendly tab spacing for mobile.</li>
+          <li>Live region announces the active tab change.</li>
+          <li>Responsive: tabs wrap and remain usable on narrow screens.</li>
+        </ul>
+      </section>
+
+      <section id="panel-3" class="tab-panel" role="tabpanel" tabindex="-1" aria-labelledby="tab-3" hidden>
+        <h2>Pricing</h2>
+        <p>Free tier includes basic access. Pro and Enterprise tiers unlock advanced features,
+           priority support, and team management tools.</p>
+        <p>Select a tab to read more about each plan's capabilities.</p>
+      </section>
+    </div>
+
+    <div class="tabs-footer">
+      <span id="status" class="status" role="status" aria-live="polite"></span>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

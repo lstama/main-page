@@ -1,0 +1,175 @@
+/* Range Slider — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5a5a5a;
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --track: #d7d7d7;
+  --border: #d7d7d7;
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --accent: #60a5fa;
+    --accent-soft: #1e3a5f;
+    --track: #333;
+    --border: #333;
+  }
+}
+
+.main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 2rem;
+  line-height: 1.5;
+}
+
+/* Field */
+.field {
+  margin-bottom: 1.75rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.slider-output {
+  flex: 0 0 3rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+/* Range input */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  height: 6px;
+  background: transparent;
+  cursor: grab;
+}
+
+input[type="range"]:active {
+  cursor: grabbing;
+}
+
+input[type="range"]:focus-visible {
+  outline: none;
+}
+
+/* Thumb (WebKit) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  margin-top: -7px; /* center the 20px thumb on the 6px track */
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+/* Thumb (Firefox) */
+input[type="range"]::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  margin-top: -7px; /* center the 20px thumb on the 6px track */
+}
+
+/* Track (WebKit) */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--track);
+}
+
+/* Track (Firefox) */
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--track);
+}
+
+/* Focus ring on track for keyboard users */
+input[type="range"]::-webkit-slider-runnable-track:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.help {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.range-value {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--fg);
+  background: var(--accent-soft);
+  border-radius: 8px;
+}
+
+/* On narrow screens, reduce gap. */
+@media (max-width: 400px) {
+  .main {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .slider-wrap {
+    gap: 0.5rem;
+  }
+
+  .slider-output {
+    flex-basis: 2.5rem;
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contrast Checker — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Contrast Checker</h1>
+    <p class="demo-sub">Computes the WCAG contrast ratio between two colors and reports AA / AAA
+       pass status for normal and large text.</p>
+
+    <section class="pickers">
+      <label>Foreground
+        <input type="color" id="fg" value="#1a1a1a" />
+      </label>
+      <label>Background
+        <input type="color" id="bg" value="#ffffff" />
+      </label>
+    </section>
+
+    <section class="preview" id="preview" aria-live="polite">
+      <p class="preview-large">Large text · 18.66px / 14pt bold</p>
+      <p class="preview-normal">Normal text · 16px / 10.5pt</p>
+    </section>
+
+    <section class="results">
+      <div class="ratio">
+        <span class="ratio-label">Contrast ratio</span>
+        <span id="ratio-value" class="ratio-value">21 : 1</span>
+      </div>
+      <ul class="grades" aria-label="WCAG pass/fail">
+        <li data-level="AAA"><span class="g-label">AAA Large</span><span class="g-value"></span></li>
+        <li data-level="AA"><span class="g-label">AA Large</span><span class="g-value"></span></li>
+        <li data-level="AAA"><span class="g-label">AAA Normal</span><span class="g-value"></span></li>
+        <li data-level="AA"><span class="g-label">AA Normal</span><span class="g-value"></span></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

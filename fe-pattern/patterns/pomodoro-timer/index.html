@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro Timer — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Pomodoro Timer</h1>
+    <p class="demo-sub">Work / short break / long break sessions. Auto-advances and counts completed
+       pomodoros. Durations are configurable in milliseconds.</p>
+
+    <section class="session-tabs" aria-label="Session types">
+      <button type="button" class="tab active" data-mode="work">Work</button>
+      <button type="button" class="tab" data-mode="short">Short Break</button>
+      <button type="button" class="tab" data-mode="long">Long Break</button>
+    </section>
+
+    <section class="clock" aria-live="polite">
+      <div class="ring" role="timer" aria-label="Time remaining">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+          <circle class="ring-fg" id="ring" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <span class="ring-time" id="time">25:00</span>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button type="button" id="toggle" class="btn primary">Start</button>
+      <button type="button" id="reset" class="btn ghost">Reset</button>
+      <button type="button" id="skip" class="btn">Skip</button>
+    </section>
+
+    <p class="pomodoros" aria-live="polite">
+      <span aria-label="Pomodoros completed">Pomodoros:</span>
+      <span id="count">0</span>
+    </p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

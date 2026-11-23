@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typography Scale — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Typography Scale</h1>
+    <p class="demo-sub">Pick a musical interval (ratio) and a base size. The scale updates live so
+       you can compare how tight or expansive each ratio feels.</p>
+
+    <section class="controls">
+      <label>Ratio
+        <select id="ratio">
+          <option value="1.125">Minor second (1.125)</option>
+          <option value="1.25">Major second (1.25)</option>
+          <option value="1.333">Tritone (1.333)</option>
+          <option value="1.414">Octave root (1.414)</option>
+          <option value="1.5">Perfect fifth (1.5)</option>
+          <option value="1.618">Golden ratio (1.618)</option>
+        </select>
+      </label>
+      <label>Base size (px)
+        <input type="number" id="base" value="16" min="10" max="32" />
+      </label>
+      <label>Steps
+        <input type="number" id="steps" value="7" min="2" max="12" />
+      </label>
+    </section>
+
+    <section class="scale" id="scale" aria-label="Type scale preview"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

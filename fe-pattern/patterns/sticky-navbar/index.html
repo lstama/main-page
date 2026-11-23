@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sticky Navbar — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar" id="navbar" role="banner">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Acme</a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link active" href="#">Home</a></li>
+          <li><a class="nav-link" href="#">About</a></li>
+          <li><a class="nav-link" href="#">Services</a></li>
+          <li><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburger" type="button"
+              aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false">
+        <span class="hamburger-box" aria-hidden="true">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <h1>Responsive sticky navbar</h1>
+    <p class="demo-sub">Sticks to the top; collapses to a hamburger on mobile. Scroll down to see
+       it hide on scroll-down and reappear on scroll-up.</p>
+
+    <section class="hero"><p>A short intro so the page has something to scroll through.</p></section>
+    <section class="panel"><h2>Section one</h2><p>Placeholder content to enable scrolling and test
+       the sticky + hide-on-scroll behavior of the navbar.</p></section>
+    <section class="panel"><h2>Section two</h2><p>More placeholder content. On a small screen the
+       nav links fold into the hamburger button in the top-right corner.</p></section>
+    <section class="panel"><h2>Section three</h2><p>Keep scrolling. The navbar disappears as you
+       scroll down and slides back into view when you scroll up.</p></section>
+    <section class="panel"><h2>Section four</h2><p>Keyboard users: Tab to the hamburger on mobile,
+       press Enter/Space to open, arrow keys to move between links, Escape to close.</p></section>
+    <section class="panel"><h2>Section five</h2><p>Final section. Resize the window below 768px to
+       see the mobile menu collapse.</p></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

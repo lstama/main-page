@@ -1,0 +1,85 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.demo { width: 100%; max-width: 640px; }
+.demo h1 { font-size: 1.4rem; margin: 0 0 8px; }
+.demo-sub { color: #4b5563; margin: 0 0 22px; }
+
+.accordion {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Separator between panels */
+.panel + .panel { border-top: 1px solid #e5e7eb; }
+
+.panel-title { margin: 0; font-size: 1rem; }
+
+.panel-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.panel-header:hover { background: #f9fafb; }
+.panel-header:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px #4f46e5;
+}
+
+.panel-title-text { flex: 1; }
+
+/* +/- icon: two bars. Collapsed shows a plus; expanded hides the vertical bar. */
+.panel-icon {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  flex: none;
+}
+.panel-icon::before,
+.panel-icon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: #6b7280;
+  transform: translate(-50%, -50%);
+}
+/* Horizontal bar (always present) */
+.panel-icon::before { }
+/* Vertical bar (hidden when expanded) */
+.panel-icon::after { }
+.panel-header[aria-expanded="true"] .panel-icon::after { display: none; }
+
+.panel-body {
+  padding: 4px 18px 18px;
+  color: #374151;
+  line-height: 1.55;
+}
+.panel-body p { margin: 0; }
+.panel-body[hidden] { display: none; }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inline Editing — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Inline Editing</h1>
+    <p class="demo-sub">Editable content with a formatting toolbar. Edits persist to localStorage.</p>
+
+    <div class="editor">
+      <div class="toolbar" role="group" aria-label="Formatting">
+        <button type="button" data-cmd="bold" aria-pressed="false" title="Bold (Ctrl+B)"><strong>B</strong></button>
+        <button type="button" data-cmd="italic" aria-pressed="false" title="Italic (Ctrl+I)"><em>I</em></button>
+        <button type="button" data-cmd="underline" aria-pressed="false" title="Underline (Ctrl+U)"><u>U</u></button>
+        <button type="button" data-cmd="insertUnorderedList" aria-pressed="false" title="Bullet list">• List</button>
+        <button type="button" data-cmd="undo" aria-pressed="false" title="Undo (Ctrl+Z)">↶ Undo</button>
+        <button type="button" data-cmd="redo" aria-pressed="false" title="Redo (Ctrl+Y)">↷ Redo</button>
+      </div>
+
+      <div
+        id="editable"
+        class="editable"
+        contenteditable="true"
+        role="textbox"
+        aria-multiline="true"
+        aria-label="Editable content"
+        data-placeholder="Type your content here…"
+      >
+        <p>Start editing this text. Select words and use the toolbar to format them.</p>
+        <ul>
+          <li>Everything is saved automatically to your browser.</li>
+          <li>Works with mouse, keyboard, and touch.</li>
+        </ul>
+      </div>
+
+      <div class="editor-footer">
+        <span id="status" class="status" role="status" aria-live="polite"></span>
+        <button type="button" id="reset" class="btn-reset">Reset</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

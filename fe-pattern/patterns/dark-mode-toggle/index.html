@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark Mode Toggle — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <div class="demo-card">
+      <div class="demo-row">
+        <h1>Good morning 👋</h1>
+        <button id="theme-toggle" class="toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+          <span class="toggle-track">
+            <span class="toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+      <p class="demo-sub">This page switches its whole theme with a single attribute.
+        Your choice is saved and remembered on reload.</p>
+
+      <div class="demo-box">Content adapts to the active theme.</div>
+
+      <p class="demo-note">
+        Tip: change your OS appearance and reload — it follows the system until you override it.
+      </p>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

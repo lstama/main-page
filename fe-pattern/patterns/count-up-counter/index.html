@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Count-up Counter — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Count-up counter</h1>
+    <p class="demo-sub">Numbers animate from 0 to their target when scrolled into view.
+       Responsive grid; works on both desktop and mobile.</p>
+
+    <section class="stats" id="stats">
+      <div class="stat">
+        <span class="stat-num" data-target="1284" data-suffix="+">0</span>
+        <span class="stat-label">Projects shipped</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="98765" data-suffix="">0</span>
+        <span class="stat-label">Lines of code</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="42" data-suffix="%">0</span>
+        <span class="stat-label">Faster load times</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="1500" data-suffix="">0</span>
+        <span class="stat-label">Happy users</span>
+      </div>
+    </section>
+
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

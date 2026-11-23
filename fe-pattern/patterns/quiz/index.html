@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Quiz</h1>
+    <p class="demo-sub">A small multiple-choice quiz with instant scoring, per-question feedback,
+       and a retry. Answers persist in the form; results compute on submit.</p>
+
+    <form id="quiz" novalidate>
+      <ol class="questions" id="questions"></ol>
+      <button type="submit" class="btn" id="submit">Check answers</button>
+    </form>
+
+    <section class="result" id="result" hidden>
+      <h2 id="result-title" class="result-title"></h2>
+      <p id="result-text" class="result-text"></p>
+      <button type="button" class="btn" id="retry">Retry</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

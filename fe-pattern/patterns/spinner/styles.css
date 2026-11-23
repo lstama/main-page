@@ -1,0 +1,116 @@
+/* Spinner — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 10px;
+  --accent: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --accent: #60a5fa;
+  }
+}
+
+.main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 2rem;
+  line-height: 1.5;
+}
+
+.key {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.spinner-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.size-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Spinner base — SVG ring with a rotating dash */
+.spinner {
+  --size: 28px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background:
+    conic-gradient(from 0deg, transparent 0deg 15deg, var(--accent) 15deg 60deg, transparent 60deg 360deg);
+  -webkit-mask: radial-gradient(circle 35% at 50% 50%, transparent 96%, #000 97%);
+  mask: radial-gradient(circle 35% at 50% 50%, transparent 96%, #000 97%);
+  animation: spin 0.9s linear infinite;
+}
+
+.spinner-md { --size: 40px; }
+.spinner-lg { --size: 56px; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Reduced motion: keep it visible but stop the spin. */
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: none; }
+}
+
+/* Demo */
+.demo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--fg);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover { border-color: var(--accent); }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

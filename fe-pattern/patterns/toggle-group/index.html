@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toggle Group — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Toggle Group</h1>
+    <p class="demo-sub">A set of mutually exclusive toggle buttons using a native radio group with
+       full WAI-ARIA keyboard support: arrows move, Home/End jump, Space selects.</p>
+
+    <section class="box">
+      <fieldset class="field">
+        <legend class="legend">Alignment</legend>
+        <div class="group" role="radiogroup" aria-label="Text alignment">
+          <button type="button" class="toggle" role="radio" aria-checked="false">Left</button>
+          <button type="button" class="toggle" role="radio" aria-checked="true">Center</button>
+          <button type="button" class="toggle" role="radio" aria-checked="false">Right</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend class="legend">Plan</legend>
+        <div class="group" role="radiogroup" aria-label="Subscription plan">
+          <button type="button" class="toggle" role="radio" aria-checked="true">Free</button>
+          <button type="button" class="toggle" role="radio" aria-checked="false">Pro</button>
+          <button type="button" class="toggle" role="radio" aria-checked="false">Team</button>
+        </div>
+      </fieldset>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

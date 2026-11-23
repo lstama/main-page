@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accordion — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Accessible accordion</h1>
+    <p class="demo-sub">Collapsible panels with WAI-ARIA states and keyboard support.</p>
+
+    <div class="accordion" id="faq-accordion">
+      <div class="panel">
+        <h2 class="panel-title">
+          <button class="panel-header" type="button" aria-expanded="false" aria-controls="panel-1">
+            <span class="panel-title-text">What is fe-pattern?</span>
+            <span class="panel-icon" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="panel-body" id="panel-1" hidden>
+          <p>fe-pattern is a gallery of copy-paste frontend patterns. Each demo is vanilla HTML,
+             CSS, and JS — no framework or build step required.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel-title">
+          <button class="panel-header" type="button" aria-expanded="false" aria-controls="panel-2">
+            <span class="panel-title-text">How do I use these patterns?</span>
+            <span class="panel-icon" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="panel-body" id="panel-2" hidden>
+          <p>Open a pattern, preview it live, and copy the source. Paste it into your project and
+             adapt the styles to match your own design system.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel-title">
+          <button class="panel-header" type="button" aria-expanded="false" aria-controls="panel-3">
+            <span class="panel-title-text">Are the patterns accessible?</span>
+            <span class="panel-icon" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="panel-body" id="panel-3" hidden>
+          <p>Yes. Each pattern follows WAI-ARIA authoring practices — proper roles, states, and
+             keyboard support — so it works with screen readers and keyboards alike.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

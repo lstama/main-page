@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Checkbox — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Custom Checkbox</h1>
+    <p class="demo-sub">A native <span class="key">&lt;input type="checkbox"&gt;</span> kept for
+       accessibility and form submission, with a styled box on
+       <span class="key">&lt;label&gt;</span>. Keyboard, focus, indeterminate, and disabled states
+       all work.</p>
+
+    <section class="box">
+      <label class="check">
+        <input type="checkbox" class="check-input" checked />
+        <span class="check-box" aria-hidden="true">
+          <svg viewBox="0 0 12 8" class="check-mark"><path d="M1 4 L4 7 L11 1" /></svg>
+        </span>
+        <span class="check-label">Accept terms and conditions</span>
+      </label>
+
+      <label class="check">
+        <input type="checkbox" class="check-input" />
+        <span class="check-box" aria-hidden="true">
+          <svg viewBox="0 0 12 8" class="check-mark"><path d="M1 4 L4 7 L11 1" /></svg>
+        </span>
+        <span class="check-label">Subscribe to the newsletter</span>
+      </label>
+
+      <label class="check">
+        <input type="checkbox" class="check-input" disabled />
+        <span class="check-box" aria-hidden="true">
+          <svg viewBox="0 0 12 8" class="check-mark"><path d="M1 4 L4 7 L11 1" /></svg>
+        </span>
+        <span class="check-label">Disabled option</span>
+      </label>
+    </section>
+
+    <section class="box">
+      <p class="hint">The indeterminate state (set via JS) is useful for "select all" parents.</p>
+      <label class="check">
+        <input type="checkbox" class="check-input check-parent" id="parent" />
+        <span class="check-box" aria-hidden="true">
+          <svg viewBox="0 0 12 8" class="check-mark"><path d="M1 4 L4 7 L11 1" /></svg>
+          <svg viewBox="0 0 12 8" class="check-minus"><path d="M2 4 H10" /></svg>
+        </span>
+        <span class="check-label">All features</span>
+      </label>
+
+      <label class="check">
+        <input type="checkbox" class="check-input check-child" />
+        <span class="check-box" aria-hidden="true">
+          <svg viewBox="0 0 12 8" class="check-mark"><path d="M1 4 L4 7 L11 1" /></svg>
+        </span>
+        <span class="check-label">Analytics</span>
+      </label>
+
+      <label class="check">
+        <input type="checkbox" class="check-input check-child" />
+        <span class="check-box" aria-hidden="true">
+          <svg viewBox="0 0 12 8" class="check-mark"><path d="M1 4 L4 7 L11 1" /></svg>
+        </span>
+        <span class="check-label">Beta access</span>
+      </label>
+
+      <label class="check">
+        <input type="checkbox" class="check-input check-child" />
+        <span class="check-box" aria-hidden="true">
+          <svg viewBox="0 0 12 8" class="check-mark"><path d="M1 4 L4 7 L11 1" /></svg>
+        </span>
+        <span class="check-label">Priority support</span>
+      </label>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

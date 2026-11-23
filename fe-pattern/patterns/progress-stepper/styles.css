@@ -1,0 +1,169 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #111827;
+  background: #f4f5f7;
+  line-height: 1.5;
+}
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.main h1 { margin-top: 0; }
+.demo-sub { color: #4b5563; }
+
+/* --- Stepper (horizontal on desktop) --- */
+.stepper-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepper-step {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* Connector line between steps */
+.stepper-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: #e5e7eb;
+  z-index: 0;
+}
+.stepper-step.is-completed:not(:last-child)::after {
+  background: #4f46e5;
+}
+
+/* Circle indicator */
+.stepper-marker {
+  position: relative;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #d1d5db;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #9ca3af;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.stepper-step.is-completed .stepper-marker,
+.stepper-step.is-current .stepper-marker {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
+}
+.stepper-step.is-completed .stepper-marker::after {
+  content: "✓";
+  font-size: 1.1rem;
+}
+.stepper-step.is-completed .stepper-number,
+.stepper-step.is-current .stepper-number {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Label */
+.stepper-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+.stepper-step.is-current .stepper-label {
+  color: #111827;
+  font-weight: 700;
+}
+.stepper-step.is-completed .stepper-label {
+  color: #4f46e5;
+}
+
+/* Focus ring for keyboard users */
+.stepper-step:focus-visible {
+  outline: 3px solid #4f46e5;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* --- Status --- */
+.status {
+  margin-top: 24px;
+  color: #4b5563;
+  font-size: 0.95rem;
+  min-height: 1.2em;
+}
+
+/* --- Controls --- */
+.controls {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 320px;
+}
+.controls label {
+  font-weight: 600;
+  color: #374151;
+}
+.controls select {
+  height: 44px;
+  padding: 0 12px;
+  font-size: 1rem;
+  color: #111827;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+/* --- Responsive: vertical stack on narrow screens --- */
+@media (max-width: 600px) {
+  .stepper-list {
+    flex-direction: column;
+    padding-left: 10px;
+  }
+  .stepper-step {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 16px;
+    padding: 8px 0;
+  }
+  /* Horizontal connector becomes vertical, dropping to the left of each step */
+  .stepper-step:not(:last-child)::after {
+    top: auto;
+    bottom: -2px;
+    left: 19px;
+    right: auto;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+  .stepper-step:not(:last-child) {
+    padding-bottom: 12px;
+  }
+  .stepper-marker {
+    flex: none;
+  }
+  .stepper-label {
+    font-size: 1rem;
+  }
+}

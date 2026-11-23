@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tooltip — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Tooltip</h1>
+    <p class="demo-sub">Accessible tooltips driven by <code>aria-describedby</code>.
+       Show on hover <em>and</em> on focus, move with the pointer, and hide on
+       <kbd>Esc</kbd>. Pure CSS positioning, JS only for a11y and tracking.</p>
+
+    <div class="row">
+      <button type="button" class="btn" data-tooltip="Saved to your account" data-pos="top">
+        Hover or focus me (top)
+      </button>
+
+      <button type="button" class="btn" data-tooltip="Deletes permanently" data-pos="bottom" data-placement="danger">
+        Bottom position
+      </button>
+
+      <span class="inline" data-tooltip="Ctrl+S to save" data-pos="right">
+        Inline tooltip text spans across lines too.
+      </span>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

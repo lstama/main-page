@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban Board — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Kanban Board</h1>
+    <p class="demo-sub">Drag cards between columns. Works with mouse and touch; keyboard support
+       via arrow keys. Persists to localStorage.</p>
+
+    <section class="board" aria-label="Kanban board">
+      <div class="column" data-column="todo">
+        <header class="column-header">
+          <h2 class="column-title">To Do</h2>
+          <span class="column-count" aria-live="polite">0</span>
+        </header>
+        <div class="dropzone" data-zone="todo" role="group" aria-label="To Do cards"></div>
+      </div>
+
+      <div class="column">
+        <header class="column-header">
+          <h2 class="column-title">In Progress</h2>
+          <span class="column-count" aria-live="polite">0</span>
+        </header>
+        <div class="dropzone" data-zone="in-progress" role="group" aria-label="In Progress cards"></div>
+      </div>
+
+      <div class="column">
+        <header class="column-header">
+          <h2 class="column-title">Done</h2>
+          <span class="column-count" aria-live="polite">0</span>
+        </header>
+        <div class="dropzone" data-zone="done" role="group" aria-label="Done cards"></div>
+      </div>
+    </section>
+
+    <div class="board-footer">
+      <span id="status" class="status" role="status" aria-live="polite"></span>
+      <button type="button" id="reset" class="btn-reset">Reset</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+/* Markdown Editor — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 10px;
+  --accent: #2563eb;
+  --code-bg: #f0f1f3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --accent: #60a5fa;
+    --code-bg: #333;
+  }
+}
+
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.pane label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.editor {
+  width: 100%;
+  height: 440px;
+  box-sizing: border-box;
+  padding: 0.9rem 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--fg);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  resize: vertical;
+  white-space: pre;
+}
+
+.editor:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.preview {
+  width: 100%;
+  height: 440px;
+  box-sizing: border-box;
+  padding: 0.9rem 1rem;
+  overflow: auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.preview h1, .preview h2 { border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+.preview code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--code-bg);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+.preview pre {
+  background: var(--code-bg);
+  padding: 0.75rem;
+  border-radius: 6px;
+  overflow: auto;
+}
+.preview pre code { background: none; padding: 0; }
+.preview blockquote {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+}
+.preview a { color: var(--accent); }
+.preview ul { padding-left: 1.5rem; }
+.preview img { max-width: 100%; }
+
+@media (max-width: 640px) {
+  .panes { grid-template-columns: 1fr; }
+}

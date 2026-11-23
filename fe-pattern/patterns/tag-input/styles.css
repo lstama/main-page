@@ -1,0 +1,153 @@
+/* Tag Input — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 10px;
+  --accent: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --accent: #60a5fa;
+  }
+}
+
+.main {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.key {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+}
+
+.box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+/* Field: tags + input on one line */
+.field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  min-height: 46px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.field:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.15rem 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  color: var(--fg);
+  background: var(--accent);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tag-remove:hover { background: rgba(255, 255, 255, 0.45); }
+.tag-remove:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
+
+.tag-input {
+  flex: 1;
+  min-width: 8rem;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--fg);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.value {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  word-break: break-all;
+}

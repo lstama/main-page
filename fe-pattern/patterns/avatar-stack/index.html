@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avatar Stack — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Avatar Stack</h1>
+    <p class="demo-sub">Overlapping avatars in a row. The last visible avatar shows a
+       <span class="key">+N</span> count for the rest. Pure CSS overlap; JS only handles the overflow count.</p>
+
+    <section class="row">
+      <div class="avatars" id="avatars" role="group" aria-label="Team members">
+        <img class="avatar" src="https://i.pravatar.cc/80?img=1" alt="Ada Lovelace" />
+        <img class="avatar" src="https://i.pravatar.cc/80?img=12" alt="Grace Hopper" />
+        <img class="avatar" src="https://i.pravatar.cc/80?img=15" alt="Alan Turing" />
+        <img class="avatar" src="https://i.pravatar.cc/80?img=22" alt="Katherine Johnson" />
+        <img class="avatar" src="https://i.pravatar.cc/80?img=32" alt="Linus Torvalds" />
+        <img class="avatar" src="https://i.pravatar.cc/80?img=36" alt="Margaret Hamilton" />
+        <img class="avatar" src="https://i.pravatar.cc/80?img=41" alt="Dennis Ritchie" />
+      </div>
+      <span class="more" id="more" aria-live="polite"></span>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

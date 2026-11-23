@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Consent — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Cookie consent banner</h1>
+    <p class="demo-sub">A dialog-style banner. Dismiss it, then reload to see the choice persist
+       (stored locally). Works on PC and mobile.</p>
+
+    <p>Page content here. The consent banner overlays the bottom of the screen until you
+       accept or decline the cookies.</p>
+  </main>
+
+  <div class="cookie" id="cookie" role="dialog" aria-modal="true" aria-labelledby="cookie-title" hidden>
+    <div class="cookie-inner">
+      <h2 class="cookie-title" id="cookie-title">We use cookies</h2>
+      <p class="cookie-text" id="cookie-text"></p>
+      <div class="cookie-actions">
+        <button class="cookie-btn reject" id="cookie-reject" type="button">Reject all</button>
+        <button class="cookie-btn accept" id="cookie-accept" type="button">Accept all</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="result" id="result" role="status" aria-live="polite"></p>
+
+  <script src="app.js"></script>
+</body>
+</html>

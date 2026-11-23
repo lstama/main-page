@@ -1,0 +1,153 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.demo {
+  width: 100%;
+  max-width: 720px;
+}
+.demo h1 { font-size: 1.4rem; margin: 0 0 8px; }
+.demo-sub { color: #4b5563; margin: 0 0 22px; }
+
+/* --- Carousel --- */
+.carousel {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111827;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  /* Let vertical scroll through; handle horizontal swipes in JS. */
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  /* Transition is removed while dragging for a natural follow feel. */
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.carousel-track.is-changing { transition: none; }
+
+.carousel-slide {
+  min-width: 100%;
+  flex: 0 0 100%;
+  position: relative;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Caption over a subtle gradient so text stays readable on any image. */
+.carousel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px 22px 18px;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+}
+
+/* --- Nav buttons --- */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.carousel-btn:hover { background: #fff; }
+.carousel-btn:active { transform: translateY(-50%) scale(0.94); }
+.carousel-btn:focus-visible {
+  outline: 3px solid #4f46e5;
+  outline-offset: 2px;
+}
+.carousel-prev { left: 12px; }
+.carousel-next { right: 12px; }
+.carousel-btn svg { width: 22px; height: 22px; }
+
+/* --- Indicators --- */
+.carousel-indicators {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #9ca3af;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.carousel-indicator[aria-current="true"] {
+  background: #4f46e5;
+  transform: scale(1.35);
+}
+.carousel-indicator:focus-visible {
+  outline: 3px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* --- Autoplay controls --- */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.autoplay-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #fff;
+  color: #111827;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.autoplay-toggle:hover { background: #f9fafb; }
+.autoplay-toggle:focus-visible {
+  outline: 3px solid #4f46e5;
+  outline-offset: 2px;
+}
+.autoplay-hint { color: #6b7280; font-size: 0.85rem; }

@@ -1,0 +1,135 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #111827;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+}
+
+.demo {
+  width: 100%;
+  max-width: 900px;
+}
+.demo h1 { font-size: 1.4rem; margin: 0 0 8px; }
+.demo-sub { color: #4b5563; margin: 0 0 22px; }
+
+.table-wrap {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+thead th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+  position: relative;
+}
+
+/* --- Sortable headers --- */
+th[sortable] {
+  cursor: pointer;
+  user-select: none;
+}
+th[sortable]:hover { background: #f3f4f6; }
+th[sortable].active { color: #4f46e5; }
+.sort-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.7rem;
+  opacity: 0.35;
+}
+th[sortable].asc .sort-arrow::after { content: "▲"; opacity: 1; }
+th[sortable].desc .sort-arrow::after { content: "▼"; opacity: 1; }
+/* Non-sortable headers hide the arrow. */
+th:not([sortable]) .sort-arrow { display: none; }
+
+tbody tr:hover { background: #f9fafb; }
+
+/* --- Status badges --- */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.badge-active { background: #d1fae5; color: #065f46; }
+.badge-away { background: #fef3c7; color: #92400e; }
+.badge-inactive { background: #fee2e2; color: #991b1b; }
+
+.demo-note {
+  margin: 16px 2px 0;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+/* --- Responsive: collapse each row into a card on small screens ---
+   Pure CSS — no JS required for the collapse. Below 640px the table boxes
+   become stacked cards; each cell shows its data-label as a value label. */
+@media (max-width: 640px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  /* Hide the header row visually; mobile cards get labels from data-label. */
+  thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(0);
+    white-space: nowrap;
+  }
+  tbody tr {
+    margin: 12px;
+    padding: 4px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fff;
+  }
+  tbody tr:hover { background: #fff; }
+  td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f4f6;
+    white-space: normal;
+  }
+  td:last-child { border-bottom: none; }
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #374151;
+    margin-right: 16px;
+    flex: 0 0 auto;
+  }
+}

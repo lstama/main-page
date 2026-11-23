@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mega Menu — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo">Acme</a>
+      <nav aria-label="Primary">
+        <button
+          type="button"
+          id="mega-trigger"
+          class="mega-trigger"
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="mega-menu"
+          aria-label="Products menu"
+        >Products</button>
+
+        <div id="mega-menu" class="mega-menu" role="menu" aria-labelledby="mega-trigger" hidden>
+          <div class="mega-col">
+            <div class="mega-heading">Analytics</div>
+            <a href="#" role="menuitem">Real-time Dashboard</a>
+            <a href="#" role="menuitem">Custom Reports</a>
+            <a href="#" role="menuitem">Data Explorer</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-heading">Automation</div>
+            <a href="#" role="menuitem">Workflow Builder</a>
+            <a href="#" role="menuitem">Scheduled Tasks</a>
+            <a href="#" role="menuitem">Webhooks</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-heading">Integrations</div>
+            <a href="#" role="menuitem">Slack</a>
+            <a href="#" role="menuitem">GitHub</a>
+            <a href="#" role="menuitem">Stripe</a>
+          </div>
+          <div class="mega-cta">
+            <a href="#" class="cta-btn">Start free trial</a>
+            <p class="cta-sub">No credit card required.</p>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Mega Menu</h1>
+    <p class="demo-sub">Multi-column navigation popup. Click the trigger to open; arrow keys
+       navigate items, Esc closes. Stacks vertically on mobile.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

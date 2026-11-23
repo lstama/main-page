@@ -1,0 +1,149 @@
+/* Alerts — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 10px;
+  --info-bg: #eff6ff;
+  --info-border: #93c5fd;
+  --info-fg: #1e40af;
+  --success-bg: #ecfdf5;
+  --success-border: #6ee7b7;
+  --success-fg: #065f46;
+  --warning-bg: #fffbeb;
+  --warning-border: #fcd34d;
+  --warning-fg: #92400e;
+  --error-bg: #fef2f2;
+  --error-border: #fca5a5;
+  --error-fg: #991b1b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --info-bg: #172033;
+    --info-border: #1e40af;
+    --info-fg: #93c5fd;
+    --success-bg: #14251c;
+    --success-border: #065f46;
+    --success-fg: #6ee7b7;
+    --warning-bg: #2a2410;
+    --warning-border: #92400e;
+    --warning-fg: #fcd34d;
+    --error-bg: #2a1515;
+    --error-border: #991b1b;
+    --error-fg: #fca5a5;
+  }
+}
+
+.main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.key {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+}
+
+.alerts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.alert-icon {
+  flex: 0 0 auto;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.alert-msg {
+  flex: 1;
+}
+
+.alert-close {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.alert-close:hover {
+  background: rgba(128, 128, 128, 0.15);
+}
+
+.alert-close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.role-info {
+  background: var(--info-bg);
+  border-color: var(--info-border);
+  color: var(--info-fg);
+}
+
+.role-success {
+  background: var(--success-bg);
+  border-color: var(--success-border);
+  color: var(--success-fg);
+}
+
+.role-warning {
+  background: var(--warning-bg);
+  border-color: var(--warning-border);
+  color: var(--warning-fg);
+}
+
+.role-error {
+  background: var(--error-bg);
+  border-color: var(--error-border);
+  color: var(--error-fg);
+}
+
+.alert.is-hidden {
+  display: none;
+}

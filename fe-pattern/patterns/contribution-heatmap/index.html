@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contribution Heat Map — fe-pattern</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <h1 class="page-title">Contribution Heat Map</h1>
+    <p class="page-sub">A year of activity, like GitHub. Hover a day for the count, or use arrow keys.</p>
+
+    <div class="heatmap" id="heatmap" role="grid" aria-label="Contribution activity over the past year">
+      <div class="heatmap-grid" id="grid"></div>
+      <div class="heatmap-tooltip" id="tooltip" role="tooltip" hidden></div>
+    </div>
+
+    <div class="legend" aria-hidden="true">
+      <span class="legend-label">Less</span>
+      <span class="cell cell-l0"></span>
+      <span class="cell cell-l1"></span>
+      <span class="cell cell-l2"></span>
+      <span class="cell cell-l3"></span>
+      <span class="cell cell-l4"></span>
+      <span class="legend-label">More</span>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

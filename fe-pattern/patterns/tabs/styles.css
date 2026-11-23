@@ -1,0 +1,140 @@
+/* Tabs — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5a5a5a;
+  --accent: #2563eb;
+  --border: #d7d7d7;
+  --panel-bg: #ffffff;
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --accent: #60a5fa;
+    --border: #333;
+    --panel-bg: #2a2a2a;
+  }
+}
+
+.main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.tabs {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--panel-bg);
+}
+
+/* Tab list */
+.tabs-list {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.tab {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.tab[aria-selected="true"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Panels */
+.tab-panel {
+  padding: 1.25rem 1rem;
+  line-height: 1.6;
+}
+
+.tab-panel:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.tab-panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.tab-panel ul {
+  margin: 0.5rem 0;
+  padding-left: 1.25rem;
+}
+
+/* Footer */
+.tabs-footer {
+  margin-top: 1rem;
+}
+
+.status {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* On narrow screens, tabs wrap to multiple rows. */
+@media (max-width: 480px) {
+  .main {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .tabs-list {
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    flex: none;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    border-left: 3px solid transparent;
+  }
+
+  .tab[aria-selected="true"] {
+    border-bottom-color: var(--border);
+    border-left-color: var(--accent);
+  }
+}

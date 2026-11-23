@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Autocomplete — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Search autocomplete</h1>
+    <p class="demo-sub">Type to filter. Arrow keys navigate, Enter selects, Escape closes.
+       Works with keyboard (PC) and tap (mobile).</p>
+
+    <div class="field">
+      <label for="search" id="search-label">Select a language</label>
+      <div class="field-wrap">
+        <input
+          type="text"
+          id="search"
+          class="search-input"
+          role="combobox"
+          autocomplete="off"
+          aria-autocomplete="list"
+          aria-controls="listbox"
+          aria-expanded="false"
+          aria-describedby="help"
+          placeholder="Type to search…"
+          value=""
+        />
+        <span class="icon" aria-hidden="true">🔍</span>
+      </div>
+
+      <ul class="listbox" id="listbox" role="listbox" aria-labelledby="search-label" hidden></ul>
+
+      <span id="help" class="help">Press <kbd>↓</kbd>/<kbd>↑</kbd> to move, <kbd>Enter</kbd> to select.</span>
+    </div>
+
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <p class="result" id="result"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

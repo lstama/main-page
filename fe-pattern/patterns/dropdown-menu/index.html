@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dropdown Menu — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Accessible dropdown menu</h1>
+    <p class="demo-sub">WAI-ARIA menu pattern: arrow keys, type-ahead, focus management.</p>
+
+    <div class="menu-wrap">
+      <div class="menu">
+        <button class="menu-btn" id="menu-trigger" type="button"
+                aria-haspopup="menu" aria-expanded="false" aria-controls="menu-list">
+          <span class="menu-btn-label">Actions</span>
+          <svg class="menu-btn-icon" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16">
+            <path d="M3 6l5 5 5-5" fill="none" stroke="currentColor"
+                  stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <ul class="menu-list" id="menu-list" role="menu" hidden>
+          <li role="none"><button class="menu-item" type="button" data-action="edit" role="menuitem">Edit item</button></li>
+          <li role="none"><button class="menu-item" type="button" data-action="duplicate" role="menuitem">Duplicate</button></li>
+          <li role="none"><button class="menu-item" type="button" data-action="share" role="menuitem">Share</button></li>
+          <li class="menu-sep" role="none"><hr /></li>
+          <li role="none"><button class="menu-item menu-danger" type="button" data-action="delete" role="menuitem">Delete</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="demo-note" id="last-action">No action chosen.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

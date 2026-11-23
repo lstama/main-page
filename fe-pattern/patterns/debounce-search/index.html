@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debounce Search — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Debounce search</h1>
+    <p class="demo-sub">Waits until you stop typing before firing the request — fewer calls, less spam.</p>
+
+    <div class="search">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input id="q" type="search" placeholder="Search frameworks…" aria-describedby="q-status" />
+    </div>
+    <p class="status" id="q-status" role="status"></p>
+
+    <ul class="results" id="results" aria-live="polite"></ul>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

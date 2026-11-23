@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Grid — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Card Grid</h1>
+    <p class="demo-sub">A responsive grid of feature cards that reflows from many columns on
+       desktop to a single column on mobile. Uses <span class="key">CSS grid</span> with
+       <span class="key">auto-fill</span> + <span class="key">minmax()</span>.</p>
+
+    <section class="grid" aria-label="Feature cards">
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">⚡</div>
+        <h2 class="card-title">Fast by default</h2>
+        <p class="card-text">Zero build step and no runtime bundle. The page ships as plain HTML, CSS, and JS.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">🔒</div>
+        <h2 class="card-title">Accessible</h2>
+        <p class="card-text">Semantic landmarks, focus states, and ARIA roles work without a library.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">🎨</div>
+        <h2 class="card-title">Themed</h2>
+        <p class="card-text">Light and dark both come from CSS custom properties — switch the theme in one place.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">📱</div>
+        <h2 class="card-title">Responsive</h2>
+        <p class="card-text">The grid reflows automatically as the viewport narrows, no media queries required.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">🧩</div>
+        <h2 class="card-title">Composable</h2>
+        <p class="card-text">Add or remove cards by editing the HTML. Layout stays consistent either way.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">🔧</div>
+        <h2 class="card-title">Customizable</h2>
+        <p class="card-text">Tune spacing, radius, and accent color through the variables on <code>:root</code>.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

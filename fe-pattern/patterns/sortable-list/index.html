@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sortable List — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo">Acme</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Sortable List</h1>
+    <p class="demo-sub">Reorder items by dragging (mouse or touch) or with the
+       keyboard — <kbd>↑</kbd>/<kbd>↓</kbd> to move, <kbd>Home</kbd>/<kbd>End</kbd> to jump.
+       Order is saved automatically.</p>
+
+    <div class="card">
+      <div class="list-head">
+        <h2 id="list-label">Sprint priorities</h2>
+        <button id="reset" class="btn-ghost" type="button">Reset</button>
+      </div>
+
+      <ul id="list" class="sortable-list" role="list" aria-labelledby="list-label" tabindex="0">
+        <!-- Rendered by app.js -->
+      </ul>
+
+      <div class="list-status" role="status" aria-live="polite" id="list-status"></div>
+    </div>
+
+    <p class="hint">Tip: focus an item, then use the arrow keys. Or grab the ⠷ handle and drag.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

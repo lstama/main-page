@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Mixer — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Color Mixer</h1>
+    <p class="demo-sub">Blend two colors. Drag the slider to shift the ratio; copy the result in
+       HEX or RGB.</p>
+
+    <section class="pickers">
+      <label>Base
+        <input type="color" id="c1" value="#2563eb" />
+      </label>
+      <label>Mix
+        <input type="color" id="c2" value="#f59e0b" />
+      </label>
+    </section>
+
+    <section class="slider">
+      <input type="range" id="ratio" min="0" max="100" value="50" aria-label="Mix ratio" />
+      <span id="ratio-val" class="ratio-val">50% base / 50% mix</span>
+    </section>
+
+    <section class="result" id="result" aria-label="Mixed color"></section>
+
+    <section class="outputs">
+      <div class="out">
+        <label>HEX</label>
+        <input type="text" id="hex" readonly />
+      </div>
+      <div class="out">
+        <label>RGB</label>
+        <input type="text" id="rgb" readonly />
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

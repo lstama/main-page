@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Formatter — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>JSON Formatter</h1>
+    <p class="demo-sub">Paste JSON to validate, pretty-print, or compact it. Invalid input is
+       flagged with the parser's own error message and line/column when available.</p>
+
+    <section class="toolbar">
+      <button type="button" id="format" class="btn">Format</button>
+      <button type="button" id="compact" class="btn">Compact</button>
+      <button type="button" id="validate" class="btn">Validate</button>
+      <button type="button" id="clear" class="btn ghost">Clear</button>
+      <span id="status" class="status" aria-live="polite"></span>
+    </section>
+
+    <div class="panes">
+      <label class="pane" for="input">Input</label>
+      <textarea id="input" class="editor" spellcheck="false" placeholder='{"name":"fe-pattern","version":1}'></textarea>
+
+      <label class="pane" for="output">Output</label>
+      <pre id="output" class="editor output"></pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+/* Gauge — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 10px;
+  --accent: #2563eb;
+  --ok: #16a34a;
+  --warn: #f59e0b;
+  --danger: #dc2626;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --accent: #60a5fa;
+    --ok: #4ade80;
+    --warn: #fbbf24;
+    --danger: #f87171;
+  }
+}
+
+.main {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 2rem;
+  line-height: 1.5;
+}
+
+/* Gauge */
+.gauge-wrap {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.gauge {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gauge-track {
+  stroke: var(--border);
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+.gauge-fill {
+  stroke: var(--ok);
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-dasharray: 251;
+  stroke-dashoffset: 251;
+  transition: stroke-dashoffset 0.35s ease, stroke 0.35s ease;
+}
+
+.gauge-needle {
+  stroke: var(--fg);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transform-origin: 100px 100px;
+  transform: rotate(-90deg);
+  transition: transform 0.35s ease;
+}
+
+.gauge-hub {
+  fill: var(--card-bg);
+  stroke: var(--fg);
+  stroke-width: 3;
+}
+
+.gauge-value {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.gauge-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Control */
+.control {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.val { color: var(--fg); }
+
+.range {
+  width: 100%;
+  display: block;
+  accent-color: var(--accent);
+}

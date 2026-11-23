@@ -1,0 +1,103 @@
+/* Card Grid — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 14px;
+  --accent: #2563eb;
+  --gap: 1.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --accent: #60a5fa;
+  }
+}
+
+.main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.key {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+}
+
+/* The grid: auto-fill reflows columns based on minimum card width. */
+.grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.10);
+  border-color: var(--accent);
+}
+
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  font-size: 1.4rem;
+  border-radius: 12px;
+  background: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.card-text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 540px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

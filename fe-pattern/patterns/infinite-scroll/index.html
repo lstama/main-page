@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Scroll Feed — fe-pattern</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Infinite Scroll Feed</h1>
+      <p class="subtitle">Lazy-loads chunks as you scroll; new items fade in, old ones are recycled.</p>
+    </header>
+
+    <main class="feed" id="feed" aria-live="polite"></main>
+
+    <div class="sentinel" id="sentinel" aria-hidden="true"></div>
+
+    <div class="loader" id="loader" role="status" aria-live="polite">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <footer class="feed-foot">
+      <span id="count">0 posts loaded</span>
+      <button class="reset" id="reset" type="button">Reset feed</button>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

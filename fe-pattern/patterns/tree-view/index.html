@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tree View — demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="main" class="main">
+      <h1>Tree View</h1>
+      <p class="demo-sub">
+        A nested file tree. Expand/collapse folders with the chevron, Enter/Space on a folder, or
+        arrow keys to move and Home/End to jump. Selection and expanded state persist in
+        localStorage.
+      </p>
+
+      <div class="field">
+        <label id="tree-label" for="tree-input">Selected item</label>
+        <div class="input-wrap">
+          <span aria-hidden="true">🗂️</span>
+          <input id="tree-input" type="text" role="textbox" readonly aria-labelledby="tree-label" value="(none)" />
+        </div>
+        <span class="help">Click a node to select it. Folders keep their expanded state between visits.</span>
+      </div>
+
+      <div class="tree-shell">
+        <ul id="tree" class="tree" role="tree" aria-labelledby="tree-label" tabindex="0">
+          <!-- rendered by app.js -->
+        </ul>
+        <div class="tree-actions">
+          <button type="button" id="expand-all" class="btn">Expand all</button>
+          <button type="button" id="collapse-all" class="btn">Collapse all</button>
+          <button type="button" id="clear-sel" class="btn">Clear selection</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

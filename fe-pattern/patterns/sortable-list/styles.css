@@ -1,0 +1,191 @@
+/* Sortable List — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5a5a5a;
+  --accent: #2563eb;
+  --accent-soft: #eef2ff;
+  --border: #e5e7eb;
+  --danger: #dc2626;
+  --radius: 10px;
+  color: var(--fg); /* base foreground so h1/.list-head h2 don't inherit UA black */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --accent: #60a5fa;
+    --accent-soft: #1e3a5f;
+    --border: #333;
+    --danger: #f87171;
+  }
+}
+
+* { box-sizing: border-box; }
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.site-header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+}
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+main.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+h1 { font-size: 1.75rem; margin: 0 0 0.25rem; }
+.demo-sub { color: var(--muted); margin: 0 0 1.5rem; line-height: 1.5; }
+
+kbd {
+  font: inherit;
+  font-size: 0.85em;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.05rem 0.35rem;
+}
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.list-head h2 { font-size: 1.1rem; margin: 0; }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.btn-ghost:hover { background: var(--accent-soft); color: var(--accent); }
+.btn-ghost:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* List */
+.sortable-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  outline: none;
+}
+.sortable-list:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -4px;
+  border-radius: 8px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg);
+  cursor: grab;
+}
+.list-item.is-first { border-top-left-radius: 10px; border-top-right-radius: 10px; }
+.list-item.is-last { border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
+
+.list-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.grip {
+  flex: none;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: grab;
+  padding: 0 0.25rem;
+}
+.grip:active { cursor: grabbing; }
+.grip:focus-visible { outline: 2px solid var(--accent); border-radius: 4px; }
+
+.item-label {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--fg);
+  word-break: break-word;
+}
+
+.item-remove {
+  flex: none;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+}
+.item-remove:hover { color: var(--danger); background: var(--accent-soft); }
+.item-remove:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Dragging */
+.list-item.dragging {
+  position: relative; /* give z-index an effect so the item floats above siblings */
+  opacity: 0.85;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  cursor: grabbing;
+  z-index: 10;
+}
+
+.list-status {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-height: 1.2em;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 1rem 0 0;
+  line-height: 1.5;
+}
+
+/* Narrow screens: tighter gaps, full-width cards */
+@media (max-width: 480px) {
+  .card { padding: 0.85rem; }
+  .list-item { gap: 0.5rem; padding: 0.55rem 0.6rem; }
+  h1 { font-size: 1.5rem; }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Star Rating — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Star rating input</h1>
+    <p class="demo-sub">Mouse drag or tap to rate. Full keyboard (arrow keys) + screen reader support.</p>
+
+    <form class="rating" id="rating-form" autocomplete="off">
+      <div class="rating-group" role="radiogroup" aria-label="Rate us on a scale of one to five stars">
+        <label class="star-input">
+          <input type="radio" name="rating" value="1" aria-label="1 star" />
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" fill="#cbd5e1"/></svg>
+        </label>
+        <label class="star-input">
+          <input type="radio" name="rating" value="2" aria-label="2 stars" />
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" fill="#cbd5e1"/></svg>
+        </label>
+        <label class="star-input">
+          <input type="radio" name="rating" value="3" aria-label="3 stars" />
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" fill="#cbd5e1"/></svg>
+        </label>
+        <label class="star-input">
+          <input type="radio" name="rating" value="4" aria-label="4 stars" />
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" fill="#cbd5e1"/></svg>
+        </label>
+        <label class="star-input">
+          <input type="radio" name="rating" value="5" aria-label="5 stars" />
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" fill="#cbd5e1"/></svg>
+        </label>
+      </div>
+      <p class="rating-result" role="status" aria-live="polite" id="rating-result">No rating selected</p>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

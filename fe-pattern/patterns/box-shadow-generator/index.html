@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Box Shadow Generator — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Box Shadow Generator</h1>
+    <p class="demo-sub">Tune the shadow with sliders and copy the CSS. Live preview updates as you drag.</p>
+
+    <section class="preview" id="preview" aria-hidden="true"></section>
+
+    <section class="controls">
+      <label class="ctrl">
+        <span>Offset X</span>
+        <input type="range" id="dx" min="-50" max="50" value="10" />
+      </label>
+      <label class="ctrl">
+        <span>Offset Y</span>
+        <input type="range" id="dy" min="-50" max="50" value="10" />
+      </label>
+      <label class="ctrl">
+        <span>Blur</span>
+        <input type="range" id="blur" min="0" max="100" value="20" />
+      </label>
+      <label class="ctrl">
+        <span>Spread</span>
+        <input type="range" id="spread" min="-50" max="50" value="0" />
+      </label>
+      <label class="ctrl">
+        <span>Opacity</span>
+        <input type="range" id="opacity" min="0" max="100" value="30" />
+      </label>
+      <label class="ctrl">
+        <span>Color</span>
+        <input type="color" id="color" value="#000000" />
+      </label>
+    </section>
+
+    <section class="output">
+      <label for="css">CSS</label>
+      <input type="text" id="css" readonly />
+      <button type="button" class="btn" id="copy">Copy</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

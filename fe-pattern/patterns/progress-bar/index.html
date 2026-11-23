@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progress Bar — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Progress Bar</h1>
+    <p class="demo-sub">Two variants: a <strong>determinate</strong> bar with a percentage and a
+       <strong>indeterminate</strong> bar for unknown progress. Both are ARIA progress roles.</p>
+
+    <section class="card">
+      <label class="label" for="range">Progress <span id="pct" class="pct">0%</span></label>
+      <div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Upload progress">
+        <div class="fill" id="fill"></div>
+      </div>
+      <input type="range" id="range" min="0" max="100" value="0" class="range" />
+    </section>
+
+    <section class="card">
+      <span class="label">Uploading files…</span>
+      <div class="track indeterminate" role="progressbar" aria-label="Upload in progress">
+        <div class="fill indeterminate"></div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button type="button" class="btn" id="start">Start determinate</button>
+      <button type="button" class="btn" id="reset">Reset</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

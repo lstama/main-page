@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Validation — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Form validation</h1>
+    <p class="demo-sub">Real-time validation on blur, inline errors, and accessible wiring.</p>
+
+    <form class="form" id="form" novalidate>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" aria-describedby="email-msg" />
+        <p class="msg" id="email-msg" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="new-password" aria-describedby="password-msg" />
+        <p class="msg" id="password-msg" role="alert"></p>
+      </div>
+
+      <button class="submit" type="submit">Create account</button>
+    </form>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

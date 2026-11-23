@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Gallery with Zoom — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Image gallery with zoom</h1>
+    <p class="demo-sub">Click a thumbnail to open. Navigate with arrows, zoom with the
+       +/- buttons, scroll wheel, or double-tap. Works on PC and mobile.</p>
+
+    <div class="gallery" id="gallery"></div>
+  </main>
+
+  <!-- Lightbox / viewer -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" hidden>
+    <div class="lightbox-inner">
+      <header class="lightbox-header">
+        <span id="lightbox-title" class="lightbox-title"></span>
+        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close (Esc)">×</button>
+      </header>
+
+      <div class="lightbox-stage" id="lightbox-stage">
+        <img class="lightbox-img" id="lightbox-img" alt="" />
+      </div>
+
+      <footer class="lightbox-footer">
+        <button class="lightbox-nav" id="prev" type="button" aria-label="Previous image">‹</button>
+        <span class="lightbox-counter" id="lightbox-counter" aria-live="polite"></span>
+        <button class="lightbox-nav" id="next" type="button" aria-label="Next image">›</button>
+
+        <div class="zoom-controls">
+          <button class="zoom-btn" id="zoom-out" type="button" aria-label="Zoom out">−</button>
+          <span class="zoom-level" id="zoom-level" aria-live="polite">100%</span>
+          <button class="zoom-btn" id="zoom-in" type="button" aria-label="Zoom in">+</button>
+          <button class="zoom-btn" id="zoom-reset" type="button" aria-label="Reset zoom">Reset</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

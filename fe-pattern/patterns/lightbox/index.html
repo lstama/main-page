@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lightbox — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Lightbox</h1>
+    <p class="demo-sub">A full-screen image viewer. Click a thumbnail to open, navigate with
+       <kbd>←</kbd>/<kbd>→</kbd>, close with <kbd>Esc</kbd> or the backdrop. Focus is trapped while open.</p>
+
+    <section class="grid" aria-label="Image gallery">
+      <button class="thumb" type="button" data-src="https://picsum.photos/seed/fe1/1200/800" data-caption="Mountains at sunrise" aria-label="Open image 1 of 4">
+        <img src="https://picsum.photos/seed/fe1/400/300" alt="" loading="lazy" />
+      </button>
+      <button class="thumb" type="button" data-src="https://picsum.photos/seed/fe2/1200/800" data-caption="Coastal cliffs" aria-label="Open image 2 of 4">
+        <img src="https://picsum.photos/seed/fe2/400/300" alt="" loading="lazy" />
+      </button>
+      <button class="thumb" type="button" data-src="https://picsum.photos/seed/fe3/1200/800" data-caption="Forest trail" aria-label="Open image 3 of 4">
+        <img src="https://picsum.photos/seed/fe3/400/300" alt="" loading="lazy" />
+      </button>
+      <button class="thumb" type="button" data-src="https://picsum.photos/seed/fe4/1200/800" data-caption="Desert dunes" aria-label="Open image 4 of 4">
+        <img src="https://picsum.photos/seed/fe4/400/300" alt="" loading="lazy" />
+      </button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

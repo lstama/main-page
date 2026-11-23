@@ -1,0 +1,123 @@
+/* JSON Formatter — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 10px;
+  --ok: #16a34a;
+  --bad: #dc2626;
+  --accent: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --ok: #4ade80;
+    --bad: #f87171;
+    --accent: #60a5fa;
+  }
+}
+
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  color: var(--fg);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover { border-color: var(--accent); }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.btn.ghost { color: var(--muted); }
+
+.status {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status.ok { color: var(--ok); }
+.status.bad { color: var(--bad); }
+
+.panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.pane {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.editor {
+  width: 100%;
+  min-height: 320px;
+  box-sizing: border-box;
+  padding: 0.75rem 0.9rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--fg);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  resize: vertical;
+}
+
+textarea.editor {
+  white-space: pre;
+  overflow: auto;
+}
+
+.output {
+  margin: 0;
+  white-space: pre;
+  overflow: auto;
+  background: var(--bg);
+}
+
+@media (max-width: 640px) {
+  .panes { grid-template-columns: 1fr; }
+}

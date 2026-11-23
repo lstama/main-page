@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swatch Picker — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Swatch picker</h1>
+    <p class="demo-sub">Select a color or a size. Native radio group = full keyboard support
+       (arrow keys + Space). Works on PC and mobile.</p>
+
+    <fieldset class="swatch-group" id="color-group">
+      <legend class="swatch-legend">Color — <span id="color-value" class="swatch-value">Midnight Blue</span></legend>
+      <div class="swatch-radio-row" role="radiogroup" aria-label="Color">
+        <label class="swatch" data-color="Midnight Blue">
+          <input type="radio" name="color" value="Midnight Blue" checked />
+          <span class="swatch-dot" style="background:#1e293b" aria-hidden="true"></span>
+          <span class="swatch-check" aria-hidden="true">✓</span>
+        </label>
+        <label class="swatch" data-color="Slate Gray">
+          <input type="radio" name="color" value="Slate Gray" />
+          <span class="swatch-dot" style="background:#64748b" aria-hidden="true"></span>
+          <span class="swatch-check" aria-hidden="true">✓</span>
+        </label>
+        <label class="swatch" data-color="Forest Green">
+          <input type="radio" name="color" value="Forest Green" />
+          <span class="swatch-dot" style="background:#16a34a" aria-hidden="true"></span>
+          <span class="swatch-check" aria-hidden="true">✓</span>
+        </label>
+        <label class="swatch" data-color="Sunset Orange">
+          <input type="radio" name="color" value="Sunset Orange" />
+          <span class="swatch-dot" style="background:#ea580c" aria-hidden="true"></span>
+          <span class="swatch-check" aria-hidden="true">✓</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="swatch-group" id="size-group">
+      <legend class="swatch-legend">Size — <span id="size-value" class="swatch-value">Medium</span></legend>
+      <div class="swatch-radio-row" role="radiogroup" aria-label="Size">
+        <label class="swatch swatch-size">
+          <input type="radio" name="size" value="Small" />
+          <span class="swatch-label-text">S</span>
+        </label>
+        <label class="swatch swatch-size">
+          <input type="radio" name="size" value="Medium" checked />
+          <span class="swatch-label-text">M</span>
+        </label>
+        <label class="swatch swatch-size">
+          <input type="radio" name="size" value="Large" />
+          <span class="swatch-label-text">L</span>
+        </label>
+        <label class="swatch swatch-size">
+          <input type="radio" name="size" value="X-Large" />
+          <span class="swatch-label-text">XL</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

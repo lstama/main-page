@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Toggle — fe-pattern</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="page-head">
+      <h1 class="page-title">View Toggle</h1>
+      <p class="page-sub">Switch between a grid and a list layout. The choice persists in localStorage.</p>
+    </header>
+
+    <div class="toolbar">
+      <div class="segmented" role="tablist" aria-label="Layout view" id="segmented">
+        <button role="tab" id="grid-tab" class="seg seg-active" aria-selected="true" data-view="grid">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
+          <span>Grid</span>
+        </button>
+        <button role="tab" id="list-tab" class="seg" aria-selected="false" data-view="list" aria-controls="board">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="4" width="5" height="3" rx="1" fill="currentColor"/><rect x="3" y="10" width="5" height="3" rx="1" fill="currentColor"/><rect x="3" y="16" width="5" height="3" rx="1" fill="currentColor"/><line x1="11" y1="5.5" x2="21" y2="5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="11" y1="11.5" x2="21" y2="11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="11" y1="17.5" x2="21" y2="17.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>List</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="board grid" id="board" role="tabpanel"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

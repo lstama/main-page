@@ -1,0 +1,166 @@
+/* Pomodoro Timer — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 10px;
+  --work: #2563eb;
+  --short: #16a34a;
+  --long: #7c3aed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --work: #60a5fa;
+    --short: #4ade80;
+    --long: #a78bfa;
+  }
+}
+
+.main {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 2rem;
+  line-height: 1.5;
+}
+
+/* Tabs */
+.session-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  padding: 0.35rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #fff;
+}
+
+.tab[data-mode="work"].active { background: var(--work); }
+.tab[data-mode="short"].active { background: var(--short); }
+.tab[data-mode="long"].active { background: var(--long); }
+
+.tab:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+}
+
+/* Clock ring */
+.clock {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.ring {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.ring svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.ring-bg,
+.ring-fg {
+  fill: none;
+  stroke-width: 8;
+}
+
+.ring-bg {
+  stroke: var(--border);
+}
+
+.ring-fg {
+  stroke: var(--work);
+  stroke-linecap: round;
+  stroke-dasharray: 326.7;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.4s ease, stroke 0.3s ease;
+}
+
+.ring-time {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 0.65rem 1.4rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--fg);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover { border-color: var(--muted); }
+.btn:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+.btn.primary { background: var(--work); color: #fff; border-color: var(--work); }
+.btn.ghost { color: var(--muted); }
+
+.pomodoros {
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.pomodoros #count {
+  color: var(--fg);
+  font-size: 1.2rem;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fe-pattern — Modern Frontend Patterns to Copy</title>
+  <meta name="description" content="A gallery of common modern frontend patterns (post-2023) you can copy-paste. Built for backend devs who aren't frontend devs." />
+  <link rel="icon" href="data:image/svg+xml,%E2%9C%94%EF%B8%8F" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./">
+        <span class="brand-mark">&lt;/&gt;</span>
+        <span class="brand-name">fe-pattern</span>
+      </a>
+      <nav class="header-nav">
+        <span class="header-tagline">Modern frontend patterns to copy-paste</span>
+        <button id="theme-toggle" class="btn-icon" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+          <span class="theme-icon theme-icon-light">🌙</span>
+          <span class="theme-icon theme-icon-dark">☀️</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="container">
+    <!-- Rendered by app.js: gallery or pattern detail -->
+  </main>
+
+  <footer class="site-footer container">
+    <p>Pick a pattern, preview it, and copy the code. Everything is vanilla HTML/CSS/JS unless noted.</p>
+    <p class="footer-meta">
+      <a href="?p=dark-mode-toggle">dark-mode-toggle</a> · built as a static site
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

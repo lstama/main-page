@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error State — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Error State</h1>
+    <p class="demo-sub">A recoverable error message with a retry action. Click <strong>Retry</strong>
+       to simulate a fresh request — it succeeds after a short delay.</p>
+
+    <section class="box">
+      <div class="error" id="error" role="alert">
+        <div class="error-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="4"/><line x1="22" y1="22" x2="42" y2="42" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="42" y1="22" x2="22" y2="42" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+        </div>
+        <h2 class="title" id="error-title">Something went wrong</h2>
+        <p class="desc" id="error-desc">We couldn't reach the server. Please check your connection and try again.</p>
+        <div class="error-actions">
+          <button type="button" class="btn" id="retry">Retry</button>
+          <button type="button" class="btn ghost" id="dismiss">Dismiss</button>
+        </div>
+      </div>
+
+      <div class="ok" id="ok" hidden>
+        <div class="ok-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="4"/><path d="M22 33l7 7 13-14" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2 class="title">All good!</h2>
+        <p class="desc">The request succeeded on retry.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

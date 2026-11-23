@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Range Slider — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Range Slider</h1>
+    <p class="demo-sub">Custom-styled range input. Drag with mouse or touch; arrow keys,
+       Home/End for fine control.</p>
+
+    <div class="field">
+      <label id="slider-label" for="slider">Volume</label>
+      <div class="slider-wrap">
+        <output id="slider-output" class="slider-output" for="slider" aria-live="polite">50</output>
+        <input
+          id="slider"
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          value="50"
+          aria-labelledby="slider-label"
+          aria-describedby="slider-help"
+        />
+      </div>
+      <span id="slider-help" class="help">Use arrow keys to adjust by step, Home/End to jump to min/max.</span>
+    </div>
+
+    <div class="field">
+      <label id="step-label" for="step-slider">Step (by 10)</label>
+      <div class="slider-wrap">
+        <output id="step-output" class="slider-output" for="step-slider" aria-live="polite">30</output>
+        <input
+          id="step-slider"
+          type="range"
+          min="0"
+          max="100"
+          step="10"
+          value="30"
+          aria-labelledby="step-label"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label id="range-label">Range output</label>
+      <div id="range-value" class="range-value" role="status" aria-live="polite">Slider 1: 50 · Slider 2: 30</div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #111827;
+  background: radial-gradient(1200px 600px at 80% -10%, #dcfce7 0, #f9fafb 50%);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.page-sub {
+  margin: 6px 0 24px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.heatmap {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 16px 44px rgba(2, 6, 23, 0.1);
+  padding: 18px;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  grid-auto-flow: column;
+  gap: 3px;
+}
+
+.cell {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  background: #e5e7eb; /* level-0 */
+  transition: transform 0.1s, outline 0.1s;
+}
+.cell[data-level="1"] { background: #c6f6d2; }
+.cell[data-level="2"] { background: #6fbf7b; }
+.cell[data-level="3"] { background: #2e9f57; }
+.cell[data-level="4"] { background: #167a3e; }
+
+.cell:hover {
+  outline: 2px solid #6b7280;
+  outline-offset: 1px;
+  transform: scale(1.15);
+  z-index: 2;
+  position: relative;
+}
+
+.heatmap-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: #111827;
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 4px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transform: translate(-50%, -140%);
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: 10;
+}
+.heatmap-tooltip.visible { opacity: 1; }
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 0.72rem;
+  color: #6b7280;
+}
+.legend-label { font-variant-numeric: tabular-nums; }
+.legend .cell {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+}

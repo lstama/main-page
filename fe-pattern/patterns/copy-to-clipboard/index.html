@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copy to Clipboard — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Copy to Clipboard</h1>
+    <p class="demo-sub">Copies text with feedback and keyboard support. Falls back to
+       <span class="key">execCommand</span> on browsers without the async API.</p>
+
+    <section class="box">
+      <label class="box-label" for="snippet">Install command</label>
+      <div class="field">
+        <code id="snippet">npm install fe-pattern</code>
+        <button type="button" class="copy-btn" data-copy="#snippet" aria-label="Copy to clipboard">Copy</button>
+      </div>
+    </section>
+
+    <section class="box">
+      <label class="box-label">Inline text to copy</label>
+      <div class="field">
+        <code>The quick brown fox jumps over the lazy dog.</code>
+        <button type="button" class="copy-btn" data-copy=".fallback-text" aria-label="Copy to clipboard">Copy</button>
+      </div>
+    </section>
+
+    <p class="status" id="status" aria-live="polite"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

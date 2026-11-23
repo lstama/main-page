@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unit Converter — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Unit Converter</h1>
+    <p class="demo-sub">Convert length, weight, and temperature. Change any field and the others
+       update instantly.</p>
+
+    <section class="cats" aria-label="Unit categories">
+      <button type="button" class="cat active" data-cat="length">Length</button>
+      <button type="button" class="cat" data-cat="weight">Weight</button>
+      <button type="button" class="cat" data-cat="temperature">Temperature</button>
+    </section>
+
+    <section class="converter">
+      <div class="field">
+        <label for="from-value">From</label>
+        <input type="number" id="from-value" value="1" />
+        <select id="from-unit"></select>
+      </div>
+      <div class="field">
+        <label for="to-value">To</label>
+        <input type="number" id="to-value" readonly />
+        <select id="to-unit"></select>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

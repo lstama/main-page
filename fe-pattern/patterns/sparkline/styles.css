@@ -1,0 +1,131 @@
+/* Sparkline — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 10px;
+  --accent: #2563eb;
+  --up: #16a34a;
+  --down: #dc2626;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --accent: #60a5fa;
+    --up: #4ade80;
+    --down: #f87171;
+  }
+}
+
+.main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.row-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.row-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.row-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.row-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.row-value.up { color: var(--up); }
+.row-value.down { color: var(--down); }
+
+/* Sparkline SVG */
+.spark {
+  width: 120px;
+  height: 40px;
+  flex: 0 0 auto;
+}
+
+.spark-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.spark-area {
+  fill: var(--accent);
+  opacity: 0.12;
+}
+
+.spark-dot {
+  fill: var(--card-bg);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.spark-dot-extreme {
+  stroke: var(--fg);
+}
+
+/* Tooltip */
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  padding: 0.3rem 0.5rem;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.75rem;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.tooltip.visible { opacity: 1; }

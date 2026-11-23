@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breadcrumb Trail — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Breadcrumb trail</h1>
+    <p class="demo-sub">Shows your location in the site hierarchy. On narrow screens the
+       middle items collapse into an ellipsis you can expand.</p>
+
+    <nav class="crumbs" id="crumbs" aria-label="Breadcrumb">
+      <ol class="crumbs-list" id="crumbs-list"></ol>
+    </nav>
+
+    <div class="controls">
+      <label for="path-select">Change current page:</label>
+      <select id="path-select">
+        <option value="0">Home</option>
+        <option value="1">Home / Patterns</option>
+        <option value="2" selected>Home / Patterns / Search Autocomplete</option>
+        <option value="3">Home / Patterns / Search Autocomplete / Configuration</option>
+      </select>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

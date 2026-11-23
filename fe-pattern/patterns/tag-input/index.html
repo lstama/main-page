@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tag Input — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Tag Input</h1>
+    <p class="demo-sub">Type and press <span class="key">Enter</span> or <span class="key">,</span> to
+       add a tag. Remove with <span class="key">Backspace</span> on an empty field, or click the
+       <span class="key">×</span> on a tag. No duplicates.</p>
+
+    <section class="box">
+      <label class="label" id="tag-label">Project tags</label>
+      <div class="field" role="group" aria-labelledby="tag-label">
+        <ul class="tags" id="tags" aria-describedby="hint"></ul>
+        <input type="text" id="tag-input" class="tag-input"
+               aria-label="Add a tag" placeholder="Type a tag and press Enter" />
+        <input type="hidden" id="tag-value" name="tags" />
+      </div>
+      <p class="hint" id="hint">Comma or Enter adds a tag. Backspace removes the last one.</p>
+    </section>
+
+    <section class="box">
+      <label class="label">Stored value</label>
+      <code class="value" id="value">[]</code>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

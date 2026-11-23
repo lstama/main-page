@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Date Picker — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Date Picker</h1>
+    <p class="demo-sub">Calendar popup with keyboard and touch support. Open by clicking,
+       focusing, or pressing Space/Enter.</p>
+
+    <div class="field">
+      <label id="date-label" for="date-input">Select a date</label>
+      <div class="input-wrap">
+        <button
+          type="button"
+          id="date-trigger"
+          class="date-trigger"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-controls="date-calendar"
+          aria-label="Open calendar"
+        >
+          <span aria-hidden="true">📅</span>
+          <span class="sr-only">Open calendar</span>
+        </button>
+        <input
+          id="date-input"
+          type="text"
+          role="textbox"
+          autocomplete="off"
+          aria-labelledby="date-label"
+          aria-describedby="date-help"
+          placeholder="YYYY-MM-DD"
+          readonly
+        />
+        <div id="date-calendar" class="calendar" role="dialog" aria-modal="false" aria-labelledby="cal-title" hidden>
+          <header class="cal-header">
+            <button type="button" id="cal-prev" class="cal-nav" aria-label="Previous month">‹</button>
+            <h2 id="cal-title" class="cal-title"></h2>
+            <button type="button" id="cal-next" class="cal-nav" aria-label="Next month">›</button>
+          </header>
+          <div class="cal-grid" role="grid" aria-label="Calendar days">
+            <div class="cal-weekdays" role="presentation">
+              <span role="columnheader">Su</span><span role="columnheader">Mo</span><span role="columnheader">Tu</span>
+              <span role="columnheader">We</span><span role="columnheader">Th</span><span role="columnheader">Fr</span>
+              <span role="columnheader">Sa</span>
+            </div>
+            <div class="cal-days" role="rowgroup" id="cal-days"></div>
+          </div>
+          <footer class="cal-footer">
+            <button type="button" id="cal-today" class="cal-today">Today</button>
+            <button type="button" id="cal-close" class="cal-close">Close</button>
+          </footer>
+        </div>
+      </div>
+      <span id="date-help" class="help">Format: YYYY-MM-DD. Use arrow keys to move, Enter to select.</span>
+    </div>
+
+    <div class="field">
+      <label id="selected-label">Selected date</label>
+      <div id="selected-output" class="selected-output" role="status" aria-live="polite">None</div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

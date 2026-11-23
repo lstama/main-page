@@ -1,0 +1,145 @@
+/* Contrast Checker — demo styles. Pure CSS, no framework. */
+
+:root {
+  --bg: #f4f5f7;
+  --fg: #1a1a1a;
+  --muted: #5e6c84;
+  --card-bg: #ffffff;
+  --border: #dfe1e6;
+  --radius: 10px;
+  --ok: #16a34a;
+  --bad: #dc2626;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --card-bg: #2a2a2a;
+    --border: #444;
+    --ok: #4ade80;
+    --bad: #f87171;
+  }
+}
+
+.main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+.demo-sub {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.pickers {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pickers label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pickers input[type="color"] {
+  width: 70px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.pickers input[type="color"]::-webkit-color-swatch-wrapper { padding: 2px; }
+.pickers input[type="color"]::-webkit-color-swatch { border: none; border-radius: 6px; }
+
+/* Preview */
+.preview {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.preview p { margin: 0 0 0.5rem; }
+
+.preview-large {
+  font-size: 1.17rem;
+  font-weight: 700;
+}
+
+.preview-normal {
+  font-size: 1rem;
+}
+
+/* Results */
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ratio {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.ratio-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.ratio-value {
+  font-size: 2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.grades {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.grades li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.g-value {
+  font-weight: 700;
+}
+
+.g-value.pass { color: var(--ok); }
+.g-value.fail { color: var(--bad); }
+
+@media (max-width: 480px) {
+  .grades { grid-template-columns: 1fr; }
+}

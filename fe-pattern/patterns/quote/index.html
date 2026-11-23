@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quote — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Quote</h1>
+    <p class="demo-sub">A styled blockquote with an accent bar, inline citation, and optional avatar.
+       Semantic <span class="key">&lt;blockquote&gt;</span> + <span class="key">&lt;cite&gt;</span>.</p>
+
+    <section class="box">
+      <figure class="quote">
+        <blockquote>
+          <p>Design is not just what it looks like and feels like. Design is how it works.</p>
+        </blockquote>
+        <figcaption class="quote-meta">
+          <span class="avatar" aria-hidden="true">ST</span>
+          <span class="author"><cite>Steve Jobs</cite></span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="box">
+      <figure class="quote quote-inline">
+        <blockquote>
+          <p>Simplicity is the ultimate sophistication. <cite>Leonardo da Vinci</cite></p>
+        </blockquote>
+      </figure>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

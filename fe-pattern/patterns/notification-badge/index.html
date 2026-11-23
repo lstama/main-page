@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notification Badge — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main" class="main">
+    <h1>Notification Badge</h1>
+    <p class="demo-sub">A count badge anchored to an icon. Click to decrement; the badge hides itself
+       at zero. Supports a dotted "new" indicator and keyboard accessibility.</p>
+
+    <section class="icons" aria-label="Badge examples">
+      <button type="button" class="icon-btn" aria-label="Messages, 3 unread">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2z"/></svg>
+        <span class="badge badge-count" data-count="3">3</span>
+      </button>
+
+      <button type="button" class="icon-btn" aria-label="Notifications, 10+ unread">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v5l-2 2v1h18v-1l-2-2V9a7 7 0 0 0-7-7zM10 20a2 2 0 0 0 4 0h-4z"/></svg>
+        <span class="badge badge-count badge-hundred" data-count="12">12</span>
+      </button>
+
+      <button type="button" class="icon-btn" aria-label="New features">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2l2.4 7.4H22l-6 4.4 2.4 7.4L12 17l-6.4 4.2L8 13.8 2 9.4h7.6z"/></svg>
+        <span class="badge badge-dot" aria-label="New"></span>
+      </button>
+
+      <button type="button" class="icon-btn" aria-label="No notifications">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2z"/></svg>
+      </button>
+    </section>
+
+    <section class="controls">
+      <button type="button" class="btn" id="add">+ Add to badge</button>
+      <button type="button" class="btn" id="reset">Reset</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

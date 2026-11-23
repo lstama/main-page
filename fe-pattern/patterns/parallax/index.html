@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallax — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="main">
+    <section class="hero" id="hero">
+      <div class="parallax-layer layer-bg" aria-hidden="true"></div>
+      <div class="parallax-layer layer-mid" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1>Parallax</h1>
+        <p class="demo-sub">Layers move at different speeds as you scroll. The effect is driven by a
+           debounced scroll listener and respects <span class="key">prefers-reduced-motion</span>.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <p>Scroll back up and down to see the layers shift. Background moves slowest, foreground
+         fastest — creating a sense of depth.</p>
+      <p>On devices that prefer reduced motion, the layers move as a static stacked layout instead.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

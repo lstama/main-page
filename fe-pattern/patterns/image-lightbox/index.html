@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Lightbox — demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="demo">
+    <h1>Image lightbox</h1>
+    <p class="demo-sub">Click a thumbnail to open. Arrow keys or swipe to navigate; ESC or click
+       outside the image to close.</p>
+
+    <div class="gallery" id="gallery">
+      <button class="gallery-item" type="button" data-index="0"
+        data-full="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221200%22%20height%3D%22800%22%20viewBox%3D%220%200%201200%20800%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233b82f6%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23111827%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%221200%22%20height%3D%22800%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%22%20font-weight%3D%22600%22%20font-size%3D%2272%22%20fill%3D%22%23ffffff%22%3EMountain%20Lake%3C%2Ftext%3E%3C%2Fsvg%3E"
+        data-caption="Mountain Lake at dusk"
+        aria-label="Open Mountain Lake at dusk in full size">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22400%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233b82f6%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23111827%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%22%20font-weight%3D%22600%22%20font-size%3D%2248%22%20fill%3D%22%23ffffff%22%3EMountain%20Lake%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mountain Lake at dusk" />
+      </button>
+      <button class="gallery-item" type="button" data-index="1"
+        data-full="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221200%22%20height%3D%22800%22%20viewBox%3D%220%200%201200%20800%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2310b981%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23111827%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%221200%22%20height%3D%22800%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%22%20font-weight%3D%22600%22%20font-size%3D%2272%22%20fill%3D%22%23ffffff%22%3EForest%20Trail%3C%2Ftext%3E%3C%2Fsvg%3E"
+        data-caption="Forest Trail in autumn"
+        aria-label="Open Forest Trail in autumn in full size">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22400%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2310b981%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23111827%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%22%20font-weight%3D%22600%22%20font-size%3D%2248%22%20fill%3D%22%23ffffff%22%3EForest%20Trail%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Forest Trail in autumn" />
+      </button>
+      <button class="gallery-item" type="button" data-index="2"
+        data-full="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221200%22%20height%3D%22800%22%20viewBox%3D%220%200%201200%20800%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23f59e0b%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23111827%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%221200%22%20height%3D%22800%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%22%20font-weight%3D%22600%22%20font-size%3D%2272%22%20fill%3D%22%23ffffff%22%3EDesert%20Dunes%3C%2Ftext%3E%3C%2Fsvg%3E"
+        data-caption="Desert Dunes at sunset"
+        aria-label="Open Desert Dunes at sunset in full size">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22400%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23f59e0b%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23111827%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%22%20font-weight%3D%22600%22%20font-size%3D%2248%22%20fill%3D%22%23ffffff%22%3EDesert%20Dunes%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Desert Dunes at sunset" />
+      </button>
+      <button class="gallery-item" type="button" data-index="3"
+        data-full="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221200%22%20height%3D%22800%22%20viewBox%3D%220%200%201200%20800%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238b5cf6%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23111827%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%221200%22%20height%3D%22800%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%22%20font-weight%3D%22600%22%20font-size%3D%2272%22%20fill%3D%22%23ffffff%22%3EOcean%20Cliff%3C%2Ftext%3E%3C%2Fsvg%3E"
+        data-caption="Ocean Cliff overview"
+        aria-label="Open Ocean Cliff overview in full size">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22400%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238b5cf6%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23111827%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%22%20font-weight%3D%22600%22%20font-size%3D%2248%22%20fill%3D%22%23ffffff%22%3EOcean%20Cliff%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Ocean Cliff overview" />
+      </button>
+    </div>
+  </main>
+
+  <!-- Lightbox modal -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true" hidden>
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close viewer">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+    <button class="lightbox-prev" id="lightbox-prev" type="button" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <button class="lightbox-next" id="lightbox-next" type="button" aria-label="Next image">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </button>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

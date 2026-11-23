@@ -1180,6 +1180,10 @@ async function copyText(text, btn) {
 }
 
 // ---- Routing --------------------------------------------------------------
+// Bumped on every navigation so a slow source fetch from an earlier detail view
+// cannot write into a newer one (or into the gallery).
+let detailRenderToken = 0;
+
 function getRoute() {
   const hash = location.hash.replace(/^#\/?pattern\//, '');
   if (hash) return decodeURIComponent(hash);
@@ -1190,6 +1194,7 @@ function getRoute() {
 const app = document.getElementById('app');
 
 async function render() {
+  detailRenderToken += 1;
   const id = getRoute();
   if (id) return renderDetail(id);
   return renderGallery();
@@ -1277,6 +1282,7 @@ function attachSearchHandler() {
 }
 
 async function renderDetail(id) {
+  const token = detailRenderToken;
   const pattern = PATTERNS.find((p) => p.id === id);
 
   // Hash navigation swaps #app content without resetting scroll, so on mobile (where
@@ -1294,16 +1300,8 @@ async function renderDetail(id) {
     return;
   }
 
-  // Fetch all source files once.
-  const sources = {};
-  for (const file of pattern.files) {
-    try {
-      sources[file] = await (await fetch(`${ROOT}patterns/${id}/${file}`)).text();
-    } catch (err) {
-      sources[file] = `// Could not load ${file}\n// ${err.message}`;
-    }
-  }
-
+  // Render the shell first — the click gets an instant response while the source
+  // files are still loading. The code panel shows a loading state until they arrive.
   app.innerHTML = `
     <div class="detail">
       <a class="back-link" href="./">← All patterns</a>
@@ -1314,7 +1312,7 @@ async function renderDetail(id) {
       <div class="detail-meta">${pattern.tags.map((t) => `<span class="tag">${t}</span>`).join('')}</div>
 
       <div class="action-bar">
-        <button class="btn primary" data-copy-all>📋 Copy all files</button>
+        <button class="btn primary" data-copy-all disabled>📋 Copy all files</button>
         <a class="btn" href="${ROOT}patterns/${id}/index.html" target="_blank" rel="noopener">↗ Open standalone</a>
       </div>
 
@@ -1326,16 +1324,16 @@ async function renderDetail(id) {
         <div class="code-panel">
           <div class="panel-title">
             Source
-            <button class="btn copy-btn" data-copy-current>Copy</button>
+            <button class="btn copy-btn" data-copy-current disabled>Copy</button>
           </div>
           <div class="code-tabs">
             ${pattern.files
               .map(
-                (f, i) => `<button class="code-tab ${i === 0 ? 'active' : ''}" data-tab="${f}" type="button">${f}</button>`
+                (f, i) => `<button class="code-tab ${i === 0 ? 'active' : ''}" data-tab="${f}" type="button" disabled>${f}</button>`
               )
               .join('')}
           </div>
-          <pre class="code"><code id="code-view"></code></pre>
+          <pre class="code"><code id="code-view" aria-busy="true"><span class="source-loading"><span class="source-spinner" aria-hidden="true"></span>Loading source files…</span></code></pre>
         </div>
       </div>
 
@@ -1345,6 +1343,21 @@ async function renderDetail(id) {
       </section>
     </div>
   `;
+
+  // Fetch all source files in parallel — one round-trip instead of three.
+  const entries = await Promise.all(
+    pattern.files.map(async (file) => {
+      try {
+        return [file, await (await fetch(`${ROOT}patterns/${id}/${file}`)).text()];
+      } catch (err) {
+        return [file, `// Could not load ${file}\n// ${err.message}`];
+      }
+    })
+  );
+
+  // A newer navigation superseded this one — don't write into its DOM.
+  if (token !== detailRenderToken) return;
+  const sources = Object.fromEntries(entries);
 
   // Tab switching
   const codeView = document.getElementById('code-view');
@@ -1356,7 +1369,11 @@ async function renderDetail(id) {
       t.classList.toggle('active', t.dataset.tab === file)
     );
   };
+  codeView.removeAttribute('aria-busy');
   showTab(currentFile);
+  app.querySelectorAll('.code-tab, [data-copy-current], [data-copy-all]').forEach((el) => {
+    el.disabled = false;
+  });
   app.querySelectorAll('.code-tab').forEach((tab) => {
     tab.addEventListener('click', () => showTab(tab.dataset.tab));
   });

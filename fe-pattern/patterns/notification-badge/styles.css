@@ -96,8 +96,11 @@ h1 {
   min-width: 22px;
 }
 
-/* Dot badge */
+/* Dot badge — override the count badge's 18px min-width and use border-box
+   so the dot stays 10x10 (round), not 18x10. */
 .badge-dot {
+  min-width: 0;
+  box-sizing: border-box;
   width: 10px;
   height: 10px;
   padding: 0;

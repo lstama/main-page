@@ -11,23 +11,43 @@
   var callouts = Array.prototype.slice.call(document.querySelectorAll(".callout"));
   if (!callouts.length) return;
 
+  var main = document.getElementById("main");
   var dismissed = {};
   try {
-    dismissed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    var stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    if (stored && typeof stored === "object") dismissed = stored;
   } catch (e) {
     dismissed = {};
+  }
+
+  function persist() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(dismissed));
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  // Keep the restore control in the DOM from the start and toggle its
+  // visibility. Building it only on load meant dismissing a note gave no
+  // way to restore it until the page was reloaded.
+  var restore = document.createElement("button");
+  restore.type = "button";
+  restore.className = "callout-restore";
+  restore.textContent = "Restore dismissed notes";
+  restore.hidden = true;
+
+  function refreshRestore() {
+    var anyDismissed = Object.keys(dismissed).some(function (k) { return dismissed[k]; });
+    restore.hidden = !anyDismissed;
   }
 
   callouts.forEach(function (callout, i) {
     var kind = "callout-" + i;
     callout.dataset.kind = kind;
 
-    // Skip if already dismissed and we're restoring the hidden state.
-    if (dismissed[kind]) {
-      callout.style.display = "none";
-      return;
-    }
-
+    // Wire every callout, including ones already marked dismissed in storage:
+    // skipping them left restored callouts without a dismiss button.
     var close = document.createElement("button");
     close.type = "button";
     close.className = "callout-close";
@@ -36,33 +56,23 @@
     close.addEventListener("click", function () {
       callout.style.display = "none";
       dismissed[kind] = true;
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(dismissed));
-      } catch (e) {
-        /* ignore */
-      }
+      persist();
+      refreshRestore();
     });
     callout.appendChild(close);
+
+    if (dismissed[kind]) callout.style.display = "none";
   });
 
-  // Restore link (shown only if something was dismissed).
-  var anyDismissed = Object.keys(dismissed).some(function (k) { return dismissed[k]; });
-  if (anyDismissed) {
-    var restore = document.createElement("button");
-    restore.type = "button";
-    restore.className = "callout-restore";
-    restore.textContent = "Restore dismissed notes";
-    restore.addEventListener("click", function () {
-      callouts.forEach(function (callout) {
-        callout.style.display = "";
-      });
-      dismissed = {};
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(dismissed));
-      } catch (e) {
-        /* ignore */
-      }
+  restore.addEventListener("click", function () {
+    callouts.forEach(function (callout) {
+      callout.style.display = "";
     });
-    document.getElementById("main").appendChild(restore);
-  }
+    dismissed = {};
+    persist();
+    refreshRestore();
+  });
+
+  main.appendChild(restore);
+  refreshRestore();
 })();

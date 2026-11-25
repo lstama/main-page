@@ -14,12 +14,14 @@
 
   function dismiss(chip) {
     chip.classList.add("chip-dismissing");
-    // Remove after the animation finishes.
+    // Remove after the animation finishes. Reveal Undo only in the same frame
+    // as the removal: showing it while the fading chip still occupies space
+    // makes the flex-wrap .box momentarily grow an extra line.
     setTimeout(function () {
       chip.remove();
+      undoBtn.hidden = false;
     }, 150);
     dismissed.push(chip);
-    undoBtn.hidden = false;
   }
 
   function undo() {

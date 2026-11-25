@@ -19,6 +19,12 @@
   parent.addEventListener("change", function () {
     if (syncing) return;
     syncing = true;
+    // A parent click is an explicit select-all / deselect-all action: clear the
+    // indeterminate state (the browser clears the native flag on user toggle,
+    // but the JS-managed class would otherwise linger and keep showing the
+    // minus glyph on a fully checked box).
+    parent.indeterminate = false;
+    parent.classList.remove("indeterminate");
     children.forEach(function (child) {
       child.checked = parent.checked;
     });

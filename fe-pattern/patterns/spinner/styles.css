@@ -77,8 +77,10 @@ h1 {
   border-radius: 50%;
   background:
     conic-gradient(from 0deg, transparent 0deg 15deg, var(--accent) 15deg 60deg, transparent 60deg 360deg);
-  -webkit-mask: radial-gradient(circle 35% at 50% 50%, transparent 96%, #000 97%);
-  mask: radial-gradient(circle 35% at 50% 50%, transparent 96%, #000 97%);
+  /* A percentage radius is invalid for `circle`; the old mask was dropped,
+     leaving a solid pie wedge. closest-side keeps the hollow-center ring. */
+  -webkit-mask: radial-gradient(circle closest-side at 50% 50%, transparent 55%, #000 58%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 55%, #000 58%);
   animation: spin 0.9s linear infinite;
 }
 

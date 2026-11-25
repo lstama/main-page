@@ -91,6 +91,45 @@
     if (log) log.textContent = "Action: " + msg;
   }
 
+  // Drag with Pointer Events. Only the primary (left) button drags, so a
+  // right-click still opens the context menu and keyboard handling is intact.
+  var drag = null;
+  var offsetX = 0;
+  var offsetY = 0;
+
+  card.addEventListener("pointerdown", function (e) {
+    if (e.button !== 0 || !e.isPrimary) return;
+    drag = {
+      id: e.pointerId,
+      startX: e.clientX,
+      startY: e.clientY,
+      baseX: offsetX,
+      baseY: offsetY
+    };
+    if (card.setPointerCapture) card.setPointerCapture(e.pointerId);
+  });
+
+  card.addEventListener("pointermove", function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var dx = e.clientX - drag.startX;
+    var dy = e.clientY - drag.startY;
+    if (Math.abs(dx) + Math.abs(dy) < 4) return; // a click shouldn't move the card
+    offsetX = drag.baseX + dx;
+    offsetY = drag.baseY + dy;
+    card.style.transform = "translate(" + offsetX + "px, " + offsetY + "px)";
+  });
+
+  function endDrag(e) {
+    if (drag && e.pointerId === drag.id) {
+      drag = null;
+      if (card.hasPointerCapture && card.hasPointerCapture(e.pointerId)) {
+        card.releasePointerCapture(e.pointerId);
+      }
+    }
+  }
+  card.addEventListener("pointerup", endDrag);
+  card.addEventListener("pointercancel", endDrag);
+
   // Open on right-click.
   card.addEventListener("contextmenu", function (e) {
     e.preventDefault();

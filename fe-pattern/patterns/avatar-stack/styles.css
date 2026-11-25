@@ -83,15 +83,22 @@ h1 {
 
 .more {
   flex: 0 0 auto;
-  min-width: 56px;
-  height: 56px;
-  padding: 0 0.5rem;
+  /* Match the avatars' 62px outer box (56px + 3px border on each side).
+     border-box keeps horizontal padding from stretching the circle. */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  padding: 0;
   border-radius: 50%;
   background: var(--bg);
-  border: 1px solid var(--border);
+  border: 3px solid var(--card-bg);
   color: var(--muted);
   font-weight: 600;
   font-size: 0.9rem;
+  line-height: 1;
   text-align: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }

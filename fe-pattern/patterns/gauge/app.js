@@ -7,9 +7,13 @@
   var valueEl = document.getElementById("value");
   var fill = document.getElementById("gauge-fill");
   var needle = document.getElementById("needle");
-  if (!slider) return;
+  if (!slider || !fill || !needle) return;
 
-  var ARC = 251.3; // π * r (r = 80)
+  // Measure the real path instead of relying on a hand-written π * r constant.
+  // A mismatch between dasharray and dashoffset leaves a sliver of dash visible
+  // at the far end of the arc at zero, which round linecaps paint as a green dot.
+  var ARC = fill.getTotalLength();
+  fill.style.strokeDasharray = ARC + " " + ARC;
 
   function lerp(a, b, t) { return a + (b - a) * t; }
 
@@ -19,9 +23,18 @@
     return "hsl(" + hue + ", 70%, 45%)";
   }
 
-  function render(v) {
+  function render(raw) {
+    var v = Math.max(0, Math.min(100, raw)); // clamp to the slider's valid range
     var frac = v / 100;
-    fill.style.strokeDashoffset = ARC * (1 - frac);
+    if (v <= 0) {
+      // Zero: move the whole dash pattern past the end of the path so nothing
+      // is painted (dashoffset === dash length can still show a round cap).
+      fill.style.visibility = "hidden";
+      fill.style.strokeDashoffset = ARC + 1;
+    } else {
+      fill.style.visibility = "visible";
+      fill.style.strokeDashoffset = ARC * (1 - frac);
+    }
     fill.style.stroke = colorFor(v);
     // Needle: -90deg at 0, +90deg at 100.
     needle.style.transform = "rotate(" + (-90 + v * 1.8) + "deg)";

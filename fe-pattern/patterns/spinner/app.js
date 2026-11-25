@@ -15,11 +15,9 @@
     loading = state;
     if (state) {
       inline.hidden = false;
-      toggleBtn.disabled = true;
       toggleBtn.setAttribute("aria-busy", "true");
     } else {
       inline.hidden = true;
-      toggleBtn.disabled = false;
       toggleBtn.removeAttribute("aria-busy");
     }
   }

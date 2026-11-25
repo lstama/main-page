@@ -116,15 +116,13 @@ h1 { font-size: 1.75rem; margin: 0 0 0.25rem; }
   transform: scale(1);
 }
 
-/* Indeterminate state: show the minus instead of the check. */
-.check-input.indeterminate + .check-box {
-  background: var(--accent);
-  border-color: var(--accent);
-}
+/* Indeterminate state: show the minus instead of the check. The box stays
+   unfilled — the blue fill means "fully checked" (all children selected). */
 .check-input.indeterminate + .check-box .check-mark { opacity: 0; }
 .check-input.indeterminate + .check-box .check-minus {
   display: block;
   opacity: 1;
+  stroke: var(--fg);
 }
 
 /* Focus ring for keyboard users. */

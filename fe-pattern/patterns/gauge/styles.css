@@ -69,8 +69,10 @@ h1 {
   stroke: var(--ok);
   stroke-width: 14;
   stroke-linecap: round;
-  stroke-dasharray: 251;
-  stroke-dashoffset: 251;
+  /* Slightly longer than the arc (251.36) so the pre-JS state paints no arc.
+     app.js replaces these with the exact measured path length. */
+  stroke-dasharray: 251.4;
+  stroke-dashoffset: 251.4;
   transition: stroke-dashoffset 0.35s ease, stroke 0.35s ease;
 }
 

@@ -93,12 +93,29 @@
     });
   }
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  function addFromInput() {
     var text = input.value.trim();
-    if (text) add(text);
+    if (!text) return;
+    add(text);
     input.value = "";
     input.focus();
+  }
+
+  // The gallery embeds this demo in a sandbox without `allow-forms`, so
+  // Chromium never dispatches `submit` there. Wire the button and Enter key
+  // directly; keep `submit` as a fallback for standalone use. Clearing the
+  // input makes a second invocation a no-op, so no item is added twice.
+  var addBtn = form.querySelector(".add-btn");
+  if (addBtn) addBtn.addEventListener("click", addFromInput);
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addFromInput();
+    }
+  });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    addFromInput();
   });
 
   clearBtn.addEventListener("click", clearDone);
